@@ -25,16 +25,18 @@ function telco_scripts() {
   }
 
   // ColorTunes
-  wp_register_script('telco_ct_quantize', get_template_directory_uri() . '/assets/javascripts/colortunes/quantize.js', 'jquery', '1', false);
-  wp_register_script('telco_ct_colortunes', get_template_directory_uri() . '/assets/javascripts/colortunes/color-tunes.js', 'jquery', '1', false);
-  wp_register_script('telco_ct_application', get_template_directory_uri() . '/assets/javascripts/colortunes/application.js', 'jquery', '1', false);
-  wp_enqueue_script('telco_ct_quantize');
-  wp_enqueue_script('telco_ct_colortunes');
+  // wp_register_script('telco_ct_quantize', get_template_directory_uri() . '/assets/javascripts/colortunes/quantize.js', 'jquery', '1', false);
+  // wp_enqueue_script('telco_ct_quantize');
+
+  // wp_register_script('telco_ct_colortunes', get_template_directory_uri() . '/assets/javascripts/colortunes/color-tunes.js', 'telco_ct_quantize', '1', false);
+  // wp_enqueue_script('telco_ct_colortunes');
+
+  wp_register_script('telco_ct_application', get_template_directory_uri() . '/assets/javascripts/colortunes/application.js', 'telco_ct_colortunes', '1', false);
   wp_enqueue_script('telco_ct_application');
 
   // Compiled scripts
   wp_register_script('telco_compiled_scripts', get_template_directory_uri() . '/assets/javascripts/scripts.min.js', 'jquery', '00002', false);
-  wp_enqueue_script('telco_compiled_scripts');
+  // wp_enqueue_script('telco_compiled_scripts');
 
 }
 add_action('wp_enqueue_scripts', 'telco_scripts', 100);

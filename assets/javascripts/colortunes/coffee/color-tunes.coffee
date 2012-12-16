@@ -41,7 +41,7 @@ class ColorTunes
 
     dist = (xa, ya, xb, yb) ->
       Math.sqrt((xb-xa)*(xb-xa) + (yb-ya)*(yb-ya))
-     
+
     for x in [0...width] by 1
       for y in [0...size] by 1
         p = y / size
@@ -73,7 +73,7 @@ class ColorTunes
     $(image).on "load", ->
       image.height = Math.round (image.height * (300 / image.width))
       image.width = 300
-      
+
       canvas.width = image.width
       canvas.height = image.height + 150
       canvas.getContext("2d").drawImage image, 0, 0, image.width, image.height

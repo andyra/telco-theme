@@ -12,7 +12,17 @@
   }
 }
 
+.color-tunes {
+  @include row;
 
+  .cover-picker {
+    @include span-columns(4);
+  }
+
+  .playlist {
+    @include span-columns(8);
+  }
+}
 
 
 
