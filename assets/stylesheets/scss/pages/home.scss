@@ -17,6 +17,17 @@
 
   .cover-picker {
     @include span-columns(4);
+    -webkit-perspective: 400;
+    -webkit-transform-style: preserve-3d;
+  }
+
+  figure {
+    @include transition();
+    -webkit-transform: rotateY(25deg);
+
+    &:hover {
+      -webkit-transform: rotateY(0deg);
+    }
   }
 
   .playlist {
