@@ -1,117 +1,105 @@
 <?php while (have_posts()) : the_post(); ?>
 
-  <section class="message">
-    <?php the_content(); ?>
-    <p>Sincerely,<br>&mdash; Ray A. Wister</p>
-  </section>
 
-  <section class="goods">
-    <h2>Goods</h2>
-  </section>
+  <div class="container">
+    <h1 style="margin-top: 40px;">
+      <a href="http://github.com/dannvix/ColorTunes"><span style="color: #d0104c;">Color</span><span style="color: #373c38;">Tunes</span></a>
+    </h1>
 
-  <section class="services">
-    <h2>Services</h2>
-  </section>
-
-  <div>
-    <section class="letter">
-
-      <?php // Message ?>
-
-
-      <?php // This Evening's Show ?>
-      <section class="tes">
-        <?php $broadcast = telco_get_latest_broadcast(); ?>
-        <h3><span>Tune</span> <span>In</span> <span>To</span> <span><?php echo $broadcast['location']; ?></span>:</h3>
-        <a href="<?php echo home_url(); ?>/tes/" title="Listen to This Evening's Show!">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tes.png">
-        </a>
-      </section>
-
-      <?php // ID-a-Kid ?>
-      <section class="id-a-kid">
-        <?php $id = get_id_by_slug('id-a-kid');
-        $id_a_kid = telco_get_ways_to_id_a_kid($id); ?>
-        <h3><span><?php echo $id_a_kid['count']; ?></span> <span>Ways</span> <span>to</span> <span>ID-a-KID</span>:</h3>
-        <p>Have you seen an 80 year-old kid in your vicinity? Check our handy <a href="<?php echo get_template_directory_uri(); ?>/id-a-kid/" title="How to Identify an 80 year-old kid">ID-a-Kid Guide</a> to see if you have one of these nuisances in your own backyard.</p>
-      </section>
-
-      <?php // Recent Goods ?>
-      <section class="recent">
-        <h3><span>Recent</span> <span>Goods</span>:</h3>
-        <?php $recent_catalog = telco_recent_catalog_items(); ?>
-        <ul class="unstyled">
-          <?php foreach( $recent_catalog as $post ) {
-            $collection = telco_get_collection_info($post); ?>
-            <li>
-              <a href="<?php echo $collection['permalink']; ?>">
-                <img src="<?php echo $collection['album_art']['thumbnail']; ?>" alt="">
-                <div>
-                  <?php echo $collection['title']; ?>
-                  <span><em><?php echo $collection['term']; ?>: </em><?php echo $collection['performance_date']; ?></span>
-                </div>
-              </a>
-            </li>
-          <?php } ?>
-          <li><a class="pull-right" href="<?php echo get_template_directory_uri(); ?>/catalog/" title="">✆ View All</a></li>
-        </ul>
-      </section>
-
-      <?php // Employee Services ?>
-      <?php if( is_user_logged_in() ) : ?>
-        <section>
-          <h3><span>Employee</span> <span>Services</span>:</h3>
-          <?php wp_nav_menu(array('theme_location' => 'home_navigation', 'walker' => new Roots_Nav_Walker(), 'menu_class' => 'nonen')); ?>
-        </section>
-      <?php endif; ?>
-    </section>
-
-    <aside>
-
-      <?php // Today's Track ?>
-      <section class="todays-track">
-        <h3><span>Song</span> <span>For</span> <span><?php echo date('l') . '</span> <span>' . date('M') . '</span> <span>' . date('jS'); ?></span></h3>
-        <div class="player">
-          <?php $todays_track = telco_get_todays_track(); ?>
-          <audio preload="none" src="<?php echo $todays_track['link']; ?>" data-title="<?php echo $todays_track['track']['title']; ?>"></audio>
-          <p>From "<a href="<?php echo $todays_track['collection']['permalink']; ?>"><?php echo $todays_track['collection']['title']; ?></a>"</p>
-        </div>
-      </section>
-
-      <?php // Today's Quote ?>
-      <section class="todays-quote">
-        <h3><span>Today's</span> <span>Quote</span>:</h3>
-        <blockquote>
-          <?php $todays_quote = telco_get_todays_quote(); ?>
-          <span class="quote left">"</span><em><?php echo $todays_quote['quote']; ?></em><span class="quote right">"</span>
-          <cite>&mdash; <?php echo $todays_quote['author']->post_title; ?></cite>
-        </blockquote>
-      </section>
-
-      <?php // 80 Year-Old Kid
-      $kid = false;
-      if($kid == true) : ?>
-        <section class="id-a-kid">
-          <h3><span>Spot</span> <span>an</span> <span>80</span> <span>Year-Old</span> <span>Kid</span>:</h3>
-          <blockquote>
-            <?php $todays_quote = telco_get_todays_quote(); ?>
-            <span class="quote left">"</span><em><?php echo $todays_quote['quote']; ?></em><span class="quote right">"</span>
-            <cite>&mdash; <?php echo $todays_quote['author']->post_title; ?></cite>
-          </blockquote>
-        </section>
-      <?php endif; ?>
-
-      <?php // A Word From Our Sponsors ?>
-      <section class="sponsor">
-        <h3><span>A</span> <span>Word</span> <span>From</span> <span>Our</span> <span>sponsors</span></h3>
-        <?php $random_ad = telco_get_random_ad(); ?>
-        <a class="fancybox" href="<?php echo $random_ad['image']['sizes']['large']; ?>" title="<?php echo $random_ad['title']; ?>">
-          <img src="<?php echo $random_ad['image']['sizes']['medium']; ?>" alt="<?php echo $random_ad['title']; ?>">
-        </a>
-      </section>
-
-    </aside>
-
+    <ul class="cover-picker unstyled clearfix">
+      <li>
+        <a href="#4times"><img src="images/4times.jpg" alt="4 TIMES by Koda Kumi" /></a>
+        <span class="cover-title">4 TIMES</span>
+        <span class="cover-artist">Koda Kumi</span>
+      </li>
+      <li>
+        <a href="#fame"><img src="images/fame.jpg" alt="F.A.M.E. by Chris Brown" /></a>
+        <span class="cover-title">F.A.M.E.</span>
+        <span class="cover-artist">Chris Brown</span>
+      </li>
+      <li>
+        <a href="#transatlanticism"><img src="images/transatlanticism.jpg" alt="Transatlanticism by Death Cab for Cutie" /></a>
+        <span class="cover-title">Transatlanticism</span>
+        <span class="cover-artist">Death Cab for Cutie</span>
+      </li>
+      <li>
+        <a href="#sixrules"><img src="images/sixrules.jpg" alt="Six Rules by PSY" /></a>
+        <span class="cover-title">Six Rules Part 1</span>
+        <span class="cover-artist">PSY</span>
+      </li>
+      <li>
+        <a href="#thefame"><img src="images/thefame.jpg" alt="The Fame by Lady Gaga" /></a>
+        <span class="cover-title">The Fame</span>
+        <span class="cover-artist">Lady Gaga</span>
+      </li>
+    </ul>
+    <div class="playlist-indicator hidden"></div>
   </div>
+
+  <div class="playlist closed hidden transition transition-height">
+    <div class="playlist-inner clearfix">
+      <div class="playlist-options">
+        <ul class="nav nav-pills">
+          <li class="active"><a href="#">Songs</a></li>
+          <li><a href="#">In Store</a></li>
+        </ul>
+      </div>
+      <div class="album-cover pull-right">
+        <canvas id="album-artwork" width="300" height="450"></canvas>
+      </div>
+      <div class="album-info">
+        <h3 class="album-title">4 TIMES</h3>
+        <ul class="album-actions  unstyled">
+          <li>Play</li>
+          <li>Shuffle</li>
+          <li>Options</li>
+        </ul>
+        <h4 class="album-artist"><span class="artist-name">Koda Kumi</span> <span class="released-on">(2011)</span></h4>
+        <ol class="album-tracks">
+          <li>
+            <h5 class="track-title">Introduction ~sunny time~</h5>
+            <span class="track-ratings"></span>
+            <span class="track-playtime">0:41</span>
+          </li>
+          <li>
+            <h5 class="track-title">Poppin' love cocktail feat. TEEDA</h5>
+            <span class="track-ratings"></span>
+            <span class="track-playtime">5:00</span>
+          </li>
+          <li>
+            <h5 class="track-title">Interlude ～sunset time～</h5>
+            <span class="track-ratings"></span>
+            <span class="track-playtime">0:37</span>
+          </li>
+          <li>
+            <h5 class="track-title">IN THE AIR</h5>
+            <span class="track-ratings"></span>
+            <span class="track-playtime">4:08</span>
+          </li>
+          <li>
+            <h5 class="track-title">Interlude ～midnight time～</h5>
+            <span class="track-ratings"></span>
+            <span class="track-playtime">0:28</span>
+          </li>
+          <li>
+            <h5 class="track-title">V.I.P</h5>
+            <span class="track-ratings"></span>
+            <span class="track-playtime">3:05</span>
+          </li>
+          <li>
+            <h5 class="track-title">Interlude ～time to... love～</h5>
+            <span class="track-ratings"></span>
+            <span class="track-playtime">0:36</span>
+          </li>
+          <li>
+            <h5 class="track-title">KO-SO-KO-SO</h5>
+            <span class="track-ratings"></span>
+            <span class="track-playtime">3:19</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
 
 <?php endwhile; ?>
