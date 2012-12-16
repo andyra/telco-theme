@@ -49,9 +49,12 @@ class ColorTunes
           fgColor2 = color.rgb
 
       rgbToCssString = (color) ->
-        "rgb(#{color[0]}, #{color[1]}, #{color[2]})"
+        "rgba(#{color[0]}, #{color[1]}, #{color[2]}, 1)"
 
-      $(".playlist").css "color", "#{rgbToCssString fgColor2}"
-      $(".track-title").css "color", "#{rgbToCssString fgColor}"
-      $(".playlist").css "background-color", "#{rgbToCssString bgColor}"
-      $(".playlist-indicator").css "border-bottom-color", "#{rgbToCssString bgColor}"
+      $("body, .wrap").css "background-color", "#{rgbToCssString bgColor}"
+      $("ol li").css "color", "#{rgbToCssString fgColor2}"
+      $("h2").css "color", "#{rgbToCssString fgColor}"
+
+      $('.palette li:eq(0) .swatch').css "background-color", "#{rgbToCssString bgColor}"
+      $('.palette li:eq(1) .swatch').css 'background-color', "#{rgbToCssString fgColor}"
+      $('.palette li:eq(2) .swatch').css "background-color", "#{rgbToCssString fgColor2}"

@@ -24,6 +24,23 @@
   }
 }
 
+.palette {
+  @include row;
+
+  canvas { display: none; }
+
+  li {
+    @include span-columns(2 of 8);
+    text-align: center;
+  }
+
+  .swatch {
+    @include border-radius();
+    display: block;
+    height: $baseLineHeight * 3;
+  }
+}
+
 
 
 

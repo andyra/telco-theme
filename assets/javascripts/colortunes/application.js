@@ -523,12 +523,14 @@
           }
         }
         rgbToCssString = function(color) {
-          return "rgb(" + color[0] + ", " + color[1] + ", " + color[2] + ")";
+          return "rgba(" + color[0] + ", " + color[1] + ", " + color[2] + ", 1)";
         };
-        $(".playlist").css("color", "" + (rgbToCssString(fgColor2)));
-        $(".track-title").css("color", "" + (rgbToCssString(fgColor)));
-        $(".playlist").css("background-color", "" + (rgbToCssString(bgColor)));
-        return $(".playlist-indicator").css("border-bottom-color", "" + (rgbToCssString(bgColor)));
+        $("body, .wrap").css("background-color", "" + (rgbToCssString(bgColor)));
+        $("ol li").css("color", "" + (rgbToCssString(fgColor2)));
+        $("h2").css("color", "" + (rgbToCssString(fgColor)));
+        $('.palette li:eq(0) .swatch').css("background-color", "" + (rgbToCssString(bgColor)));
+        $('.palette li:eq(1) .swatch').css('background-color', "" + (rgbToCssString(fgColor)));
+        return $('.palette li:eq(2) .swatch').css("background-color", "" + (rgbToCssString(fgColor2)));
       });
     };
 
