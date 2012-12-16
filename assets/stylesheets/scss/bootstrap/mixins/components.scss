@@ -1,0 +1,111 @@
+
+/* ==============================================================================
+ * Component Mixins
+ * =========================================================================== */
+
+/* Forms
+-------------------------------------------------- */
+
+// Block level inputs
+@mixin input-block-level {
+  display: block;
+  min-height: 28px;        // Make inputs at least the height of their button counterpart
+  width: 100%;
+  @include box-sizing(border-box); // Makes inputs behave like true block-level elements
+}
+
+// Mixin for form field states
+@mixin formFieldState($baseFontColor: #555, $borderColor: #ccc, $backgroundColor: #f5f5f5) {
+  > label,
+  .help-block,
+  .help-inline {
+    color: $baseFontColor;
+  }
+
+  // Style inputs accordingly
+  .checkbox,
+  .radio,
+  input,
+  select,
+  textarea {
+    border-color: $borderColor;
+    color: $baseFontColor;
+
+    &:focus {
+      border-color: darken($borderColor, 10%);
+      @include box-shadow(0 0 6px lighten($borderColor, 20%));
+    }
+  }
+
+  // Give a small background color for input-prepend/-append
+  .input-prepend .add-on,
+  .input-append .add-on {
+    background-color: $backgroundColor;
+    border-color: $baseFontColor;
+    color: $baseFontColor;
+  }
+}
+
+// Horizontal dividers
+@mixin nav-divider($top: #e5e5e5, $bottom: $white) {
+  // IE7 needs a set width since we gave a height. Restricting just
+  // to IE7 to keep the 1px left/right space in other browsers.
+  // It is unclear where IE is getting the extra space that we need
+  // to negative-margin away, but so it goes.
+  background-color: $top;
+  border-bottom: 1px solid $bottom;
+  height: 1px;
+  margin: (($baseLineHeight / 2) - 1) 1px; // 8px 1px
+  *margin: -5px 0 5px;
+  overflow: hidden;
+  *width: 100%;
+}
+
+// Button backgrounds
+@mixin buttonBackground($color, $hoverColor) {
+  background: $color;
+  border-color: darken($color, 10%);
+
+  &:hover {
+    background: $hoverColor;
+    border-color: darken($hoverColor, 10%);
+  }
+}
+
+// Popover arrows
+// For tipsies and popovers
+@mixin popoverArrow-top($arrowWidth: 5px, $color: $black) {
+  border-left: $arrowWidth solid transparent;
+  border-right: $arrowWidth solid transparent;
+  border-top: $arrowWidth solid $color;
+  bottom: 0;
+  left: 50%;
+  margin-left: -$arrowWidth;
+}
+
+@mixin popoverArrow-left($arrowWidth: 5px, $color: $black) {
+  border-bottom: $arrowWidth solid transparent;
+  border-left: $arrowWidth solid $color;
+  border-top: $arrowWidth solid transparent;
+  margin-top: -$arrowWidth;
+  right: 0;
+  top: 50%;
+}
+
+@mixin popoverArrow-bottom($arrowWidth: 5px, $color: $black) {
+  border-bottom: $arrowWidth solid $color;
+  border-left: $arrowWidth solid transparent;
+  border-right: $arrowWidth solid transparent;
+  left: 50%;
+  margin-left: -$arrowWidth;
+  top: 0;
+}
+
+@mixin popoverArrow-right($arrowWidth: 5px, $color: $black) {
+  border-bottom: $arrowWidth solid transparent;
+  border-right: $arrowWidth solid $color;
+  border-top: $arrowWidth solid transparent;
+  left: 0;
+  margin-top: -$arrowWidth;
+  top: 50%;
+}

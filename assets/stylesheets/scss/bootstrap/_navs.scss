@@ -1,0 +1,162 @@
+/* ==============================================================================
+   Navigations
+ * =========================================================================== */
+
+/* Base Class
+-------------------------------------------------- */
+
+.nav {
+  list-style: none;
+  margin-bottom: $baseLineHeight;
+  margin-left: 0;
+}
+
+// Make links block level
+.nav > li > a {
+  @include transition();
+  border: 1px solid transparent;
+  color: $aqua;
+  display: block;
+
+  &:hover {
+    background: $grayWash;
+    color: $black;
+    text-decoration: none;
+  }
+}
+
+// Active state
+.nav > li.active a {
+  color: $grayDark;
+}
+
+// Redeclare pull classes because of specifity
+.nav > .pull-right {
+  float: right;
+}
+
+// Nav headers (for dropdowns and lists)
+.nav .nav-header {
+  color: $grayLight;
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: $baseLineHeight;
+  padding: 3px 15px;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  text-transform: uppercase;
+}
+
+// Space them out when they follow another list item (link)
+.nav li + .nav-header {
+  margin-top: 9px;
+}
+
+/* Tabs and Pills
+-------------------------------------------------- */
+
+// Common styles
+.nav-tabs,
+.nav-pills {
+  @include clearfix();
+}
+.nav-tabs > li,
+.nav-pills > li {
+  float: left;
+}
+.nav-tabs > li > a,
+.nav-pills > li > a {
+  padding-right: 12px;
+  padding-left: 12px;
+  margin-right: 2px;
+  line-height: 14px; // keeps the overall height an even number
+}
+
+/* Tabs
+-------------------------------------------------- */
+
+// Give the tabs something to sit on
+.nav-tabs {
+  border-bottom: 1px solid #ddd;
+}
+// Make the list-items overlay the bottom border
+.nav-tabs > li {
+  margin-bottom: -1px;
+}
+// Actual tabs (as links)
+.nav-tabs > li > a {
+  @include border-radius(4px 4px 0 0);
+  border: 1px solid transparent;
+  line-height: $baseLineHeight;
+  padding-bottom: 8px;
+  padding-top: 8px;
+
+  &:hover {
+    border-color: $grayLighter $grayLighter #ddd;
+  }
+}
+// Active state, and it's :hover to override normal :hover
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover {
+  color: $gray;
+  background-color: $white;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+
+/* Tabbable
+-------------------------------------------------- */
+
+// Clear any floats
+.tabbable {
+  @include clearfix();
+}
+
+.tab-content {
+  overflow: auto; // prevent content from running below tabs
+}
+
+// Remove border on bottom, left, right
+.tabs-below > .nav-tabs,
+.tabs-right > .nav-tabs,
+.tabs-left > .nav-tabs {
+  border-bottom: 0;
+}
+
+// Show/hide tabbable areas
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+  display: none;
+}
+
+.tab-content > .active,
+.pill-content > .active {
+  display: block;
+}
+
+/* Pills
+-------------------------------------------------- */
+
+.nav-pills {
+  @include clearfix();
+
+  > li { float: left; }
+
+  > li > a {
+    @include border-radius(3px);
+    line-height: $baseLineHeight; // keeps the overall height an even number
+    margin-right: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  // Active state
+  > .active > a,
+  > .active > a:hover {
+    // background: transpare;
+    color: $grayDark;
+    cursor: arrow;
+    text-shadow: 0 1px 0 $white;
+  }
+}

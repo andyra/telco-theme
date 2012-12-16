@@ -1,0 +1,378 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"border-",
+				"border-box"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"filter",
+				"filter-toggle"
+			],
+			[
+				"base",
+				"baseLineHeight"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/scss/telco.scss",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/loop-home.php",
+		"/Users/andy/Dropbox/Syncs/Design/Telco/telco.sublime-project",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/telco.sublime-project",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/page-home.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/page-sidebar.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/scss/_utilities.scss",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/scss/_tables.scss",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/loop-archive-track.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/lib/custom.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/loop-catalog.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/scss/_type.scss",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/loop-single-collection.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/scss/login.scss",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/scss/_variables.scss",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/scss/_forms.scss",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/scss/_modals.scss",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/scss/_mixins.scss",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/header.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/archive.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/loop-archive.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/archive-track.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/loop-single.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/footer.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/loop-category.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/js/main.js",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/loop-archive-movie.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/archive-movie.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/loop-archive-collection.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/scss/_button-groups.scss",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/page-catalog.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/scss/_navs.scss",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/functions.php",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/scss/_responsive-grid.scss",
+		"/Users/andy/Sites/telefone/wp-content/themes/telco/lib/scripts.php"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"page-header",
+			"brand",
+			"*/",
+			"/*",
+			"ul",
+			"320x3",
+			"li>",
+			"li",
+			"auqa",
+			"aqua",
+			"red",
+			"aqua",
+			"altf",
+			"scriptFont",
+			"altf",
+			"$altFontFa",
+			"ul",
+			"ol",
+			"ul",
+			"this is the regu",
+			"98",
+			"modal-re",
+			"city",
+			"$inputBorder",
+			"border-b",
+			" red",
+			"red",
+			"name",
+			"div",
+			"fieldset",
+			"width",
+			"breakp",
+			"request-form",
+			"margin",
+			"max-",
+			"filter-list",
+			"p>",
+			"p",
+			"div",
+			"archive",
+			"span",
+			"ul",
+			"55px",
+			".album-art",
+			"span",
+			" !important",
+			";",
+			"table-",
+			"10px",
+			"10p",
+			"&.expanded ",
+			"3px",
+			"10px",
+			"3",
+			"&",
+			"10px",
+			"4px",
+			".btn-group ",
+			".btn",
+			"ul",
+			"20px",
+			"2px",
+			".btn-group ",
+			"> ",
+			"2px",
+			"> ",
+			"250",
+			"art_th",
+			"li",
+			"$navLinkHoverColor",
+			"navLinkColor",
+			"23px",
+			"$headerPadding"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"archive-list"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 37.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"utiliti",
+				"scss/_utilities.scss"
+			],
+			[
+				"tabl",
+				"scss/_tables.scss"
+			],
+			[
+				"looparchivetr",
+				"loop-archive-track.php"
+			],
+			[
+				"typ",
+				"scss/_type.scss"
+			],
+			[
+				"cata",
+				"loop-catalog.php"
+			],
+			[
+				"singleco",
+				"loop-single-collection.php"
+			],
+			[
+				"tel",
+				"scss/telco.scss"
+			],
+			[
+				"type",
+				"scss/_type.scss"
+			],
+			[
+				"vari",
+				"scss/_variables.scss"
+			],
+			[
+				"moda",
+				"scss/_modals.scss"
+			],
+			[
+				"mix",
+				"scss/_mixins.scss"
+			],
+			[
+				"mixi",
+				"scss/_mixins.scss"
+			],
+			[
+				"head",
+				"header.php"
+			],
+			[
+				"variable",
+				"scss/_variables.scss"
+			],
+			[
+				"variabl",
+				"scss/_variables.scss"
+			],
+			[
+				"log",
+				"scss/login.scss"
+			],
+			[
+				"var",
+				"scss/_variables.scss"
+			],
+			[
+				"footer",
+				"footer.php"
+			],
+			[
+				"forms",
+				"scss/_forms.scss"
+			],
+			[
+				"form",
+				"scss/_forms.scss"
+			],
+			[
+				"main",
+				"js/main.js"
+			],
+			[
+				"modal",
+				"scss/_modals.scss"
+			],
+			[
+				"custom",
+				"lib/custom.php"
+			],
+			[
+				"had",
+				"header.php"
+			],
+			[
+				"nav",
+				"scss/_navs.scss"
+			],
+			[
+				"butt",
+				"scss/_button-groups.scss"
+			],
+			[
+				"func",
+				"functions.php"
+			],
+			[
+				"catal",
+				"loop-catalog.php"
+			],
+			[
+				"scrip",
+				"lib/scripts.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 265.0,
+	"status_bar_visible": true
+}

@@ -1,0 +1,32 @@
+
+/* ==============================================================================
+ * ID-a-Kid Page
+ * =========================================================================== */
+
+body.id-a-kid {
+  section {
+    @include span-columns(6);
+
+    strong {
+      color: $redDark;
+      text-decoration: underline;
+    }
+  }
+
+  ol {
+    @include span-columns(6);
+
+    li {
+      font-size: $mediumFont;
+      line-height: $baseLineHeight * 1.25;
+    }
+  }
+
+
+  @include media($mediumScreen) {
+    ol,
+    section {
+      @include fill-parent;
+    }
+  }
+}

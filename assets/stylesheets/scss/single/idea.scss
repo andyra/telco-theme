@@ -1,0 +1,84 @@
+/* ==============================================================================
+ * Single Idea
+ * =========================================================================== */
+
+.single .category-idea {
+  @extend .letter;
+  background-image: none;
+  padding-bottom: 0;
+  padding-top: $baseLineHeight * 2;
+
+  footer {
+    @include border-radius(0 0 2px 2px);
+    background:
+      url('../images/shadow-top.png')        repeat-x top,
+      url('../images/grain-light.png') repeat;
+    margin: ($baseLineHeight * 2) ($baseLineHeight * -2) 0;
+    padding: $baseLineHeight ($baseLineHeight * 2);
+  }
+
+  #comments {
+    border-bottom: 2px solid $grayLightest;
+    margin-bottom: $baseLineHeight;
+    padding: ($baseLineHeight / 2) 0 0 0;
+
+    ul { margin: 0; }
+  }
+
+  .comment-meta {
+    font-size: $baseFontSize - 2px;
+
+    a {
+      @extend .btn;
+      @extend .btn-mini;
+    }
+  }
+
+  .commentlist li {
+    margin-left: 0;
+
+    &:first-child article { padding-top: 0; }
+    &:last-child article {
+      border-bottom: none;
+    }
+  }
+
+  .commentlist article {
+    border-bottom: 2px dashed $grayLightest;
+    padding: ($baseLineHeight / 2) 0;
+
+    header {
+      float: left;
+      margin-right: 20px;
+    }
+
+    img { @include border-radius(); }
+
+    time { color: $grayLighter; }
+
+    cite {
+      color: $grayLight;
+      &:before {
+        content: '⚑';
+        display: inline-block;
+        margin-right: 5px;
+      }
+    }
+
+    p { color: $gray; }
+  }
+
+  .comment { margin: 0; }
+
+  ul.children li {
+    list-style: none;
+    margin-left: 40px;
+  }
+
+  #respond {
+    input,
+    textarea {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,200 @@
+/* ==============================================================================
+   Tables
+ * =========================================================================== */
+
+/* Base Tables
+-------------------------------------------------- */
+
+table {
+  background-color: $tableBackground;
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-width: 100%;
+}
+
+/* Baseline Styles
+-------------------------------------------------- */
+
+.table {
+  margin-bottom: $baseLineHeight;
+  width: 100%;
+
+  th,
+  td {
+    border-top: 1px solid $tableBorder;
+    line-height: $baseLineHeight;
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: bold;
+  }
+
+  // Bottom align for column headings
+  thead th {
+    background: url('../images/hr-black.png') repeat-x bottom;
+    border: none;
+    vertical-align: bottom;
+  }
+
+  // Remove top border from thead by default
+  caption + thead tr:first-child th,
+  caption + thead tr:first-child td,
+  colgroup + thead tr:first-child th,
+  colgroup + thead tr:first-child td,
+  thead:first-child tr:first-child th,
+  thead:first-child tr:first-child td {
+    border-top: 0;
+  }
+
+  // Account for multiple tbody instances
+  tbody + tbody {
+    border-top: 2px solid $tableBorder;
+  }
+
+  a {
+    color: $redDark;
+    display: inline-block;
+    margin: -8px 0;
+    padding: 8px 0;
+
+    &:hover { color: $aqua; }
+  }
+}
+
+/* Condensed Table w/Half Padding
+-------------------------------------------------- */
+
+.table-condensed {
+  th,
+  td {
+    padding: 4px 5px;
+  }
+
+  a {
+    margin: -4px 0;
+    padding: 4px 0;
+  }
+}
+
+
+/* Count table rows
+-------------------------------------------------- */
+.table-counter {
+  tbody {
+    tr {
+      counter-increment: tr; // Increment the counter by 1
+
+      td:first-child:before {
+        color: $grayLighter;
+        content: counter(tr)'. '; // Use the counter as content
+        display: inline-block;
+        margin-right: 10px;
+        text-align: right;
+        min-width: 2em;
+      }
+    }
+  }
+}
+
+/* Table Sorter
+-------------------------------------------------- */
+
+.table-sortable {
+
+  .header {
+    color: $grayDarker;
+
+    &:hover {
+      color: $aqua;
+      cursor: pointer;
+    }
+
+    &:after {
+      content: '';
+      width: 20px;
+      display: inline-block;
+      text-align: center;
+      margin-left: 5px;
+    }
+  }
+
+  .sorted { color: $red; }
+  .ascending:after  { content: '▲'; }
+  .descending:after { content: '▼'; }
+}
+
+/* Bordered Version
+-------------------------------------------------- */
+
+.table-bordered {
+  border-collapse: separate; // Done so we can round those corners!
+  *border-collapse: collapsed; // IE7 can't round corners anyway
+  border-left: 0;
+  border: 1px solid $tableBorder;
+  @include border-radius(4px);
+  th,
+  td {
+    border-left: 1px solid $tableBorder;
+  }
+
+  // Prevent a double border
+  caption + thead tr:first-child th,
+  caption + tbody tr:first-child th,
+  caption + tbody tr:first-child td,
+  colgroup + thead tr:first-child th,
+  colgroup + tbody tr:first-child th,
+  colgroup + tbody tr:first-child td,
+  thead:first-child tr:first-child th,
+  tbody:first-child tr:first-child th,
+  tbody:first-child tr:first-child td {
+    border-top: 0;
+  }
+
+  // For first th or td in the first row in the first thead or tbody
+  thead:first-child tr:first-child th:first-child,
+  tbody:first-child tr:first-child td:first-child {
+    -webkit-border-top-left-radius: 4px;
+            border-top-left-radius: 4px;
+        -moz-border-radius-topleft: 4px;
+  }
+
+  thead:first-child tr:first-child th:last-child,
+  tbody:first-child tr:first-child td:last-child {
+    -webkit-border-top-right-radius: 4px;
+            border-top-right-radius: 4px;
+        -moz-border-radius-topright: 4px;
+  }
+
+  // For first th or td in the first row in the first thead or tbody
+  thead:last-child tr:last-child th:first-child,
+  tbody:last-child tr:last-child td:first-child {
+    @include border-radius(0 0 0 4px);
+    -webkit-border-bottom-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        -moz-border-radius-bottomleft: 4px;
+  }
+
+  thead:last-child tr:last-child th:last-child,
+  tbody:last-child tr:last-child td:last-child {
+    -webkit-border-bottom-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        -moz-border-radius-bottomright: 4px;
+  }
+}
+
+/* Zebra-Striping
+-------------------------------------------------- */
+
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+.table-striped {
+  tbody {
+    tr:nth-child(odd) td,
+    tr:nth-child(odd) th,
+    .odd {
+      background: $tableBackgroundAccent url('../images/pattern-hatching-blue.png') repeat;
+    }
+  }
+}

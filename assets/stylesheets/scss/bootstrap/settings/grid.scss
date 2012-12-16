@@ -1,0 +1,34 @@
+
+/* ==============================================================================
+ * Grid Settings
+ * =========================================================================== */
+
+/* Neat defaults
+-------------------------------------------------- */
+
+$column:                    60px;
+$gutter:                    20px;
+$grid-columns:              12;
+$max-width:                ($grid-columns * $column) + ($gutter * ($grid-columns - 1));
+
+/* Visual grid helpers
+-------------------------------------------------- */
+
+$visual-grid:              false;
+$visual-grid-color:        $red;
+$visual-grid-index:        front;
+$visual-grid-opacity:      .15;
+
+/* Media Breakpoint sizes
+-------------------------------------------------- */
+
+$largeScreenSize:      960px;
+$mediumScreenSize:     768px;
+$smallScreenSize:      640px;
+$smallerScreenSize:    480px;
+$smallestScreenSize:   320px;
+
+// Padding
+$largestScreenPadding:  20px;
+$largeScreenPadding:    10px;
+$smallerScreenPadding:   5px;

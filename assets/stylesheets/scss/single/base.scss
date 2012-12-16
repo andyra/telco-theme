@@ -1,0 +1,22 @@
+
+/* ==============================================================================
+ * Base Single Post Styles
+ * =========================================================================== */
+
+.single header {
+  margin-bottom: $baseLineHeight;
+
+  h1 { margin-bottom: 0; }
+
+  .meta {
+    color: $gray;
+  }
+
+  .author {
+    @include border-radius();
+    background: $blueLightest;
+    line-height: $baseLineHeight;
+    padding: 0 10px;
+    float: right;
+  }
+}

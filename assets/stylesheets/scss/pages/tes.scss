@@ -1,0 +1,95 @@
+
+/* ==============================================================================
+ * TES Page
+ * =========================================================================== */
+
+body.tes {
+  background: $grayDark url(../images/grain-light.png) repeat;
+
+  h1, h2, p {
+    color: $white;
+    margin: 0 auto $baseLineHeight;
+    text-align: center;
+    text-shadow: 0 -1px 0 $black;
+  }
+
+  h1 {
+    background: transparent url(../images/tes.png) no-repeat center;
+    text-indent: -9999px;
+    height: 65px;
+  }
+
+  p {
+    @include opacity(65);
+    font-size: $baseFontSize + 4px;
+    max-width: 740px;
+  }
+}
+
+.playlist {
+  max-width: 740px;
+  margin: 0 auto;
+
+  .audiojs {
+    @include border-radius(3px 3px 0 0);
+    border-bottom: 1px solid $black;
+    margin-bottom: 0;
+  }
+
+  .tracklist {
+    background: $grayDarkest url(../images/grain-dark.png) repeat;
+    display: none;
+    border-bottom: 1px solid $black;
+    margin: 0;
+    padding: 0 20px;
+
+    li,
+    li:before {
+      border-bottom-color: $grayDarker;
+    }
+
+    li.playing,
+    li.playing:before  {
+      background: transparent url(../images/pattern-hatching-blue.png) repeat;
+    }
+
+    a { color: $aqua;
+      &:hover { color: $white; }
+    }
+  }
+
+  .toggle-tracklist {
+    $shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 1px 2px rgba(0,0,0,.65);
+    @include border-radius(0 0 3px 3px);
+    @include box-shadow($shadow);
+    background: $grayDarker url(../images/grain-dark.png) repeat;
+    border-top: 1px solid $grayDark;
+    color: $aqua;
+    display: block;
+    line-height: $baseLineHeight * 1.5;
+    padding: 0 20px;
+    text-align: right;
+
+    &:hover {
+      color: $white;
+      cursor: pointer;
+    }
+  }
+}
+
+body.tes {
+
+  @include media($mediumScreen) {
+    p { text-align: justify; }
+  }
+
+  @include media($smallerScreen) {
+    h1 { background-size: 100%; }
+    p { font-size: $baseFontSize + 2px; }
+  }
+
+  @include media($smallerScreen) {
+    p { font-size: $baseFontSize; }
+  }
+
+}

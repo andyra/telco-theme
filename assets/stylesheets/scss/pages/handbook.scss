@@ -1,0 +1,72 @@
+
+/* ==============================================================================
+ * Handbook Pages
+ * =========================================================================== */
+
+.page-template-page-handbook-php #content {
+
+  h1 img {
+    margin-right: 10px;
+    max-height: $baseLineHeight * 2;
+  }
+
+  nav {
+    ul { margin: 0; }
+
+    li a {
+      border: none;
+      color: $blue;
+
+      &:hover {
+        color: $red;
+      }
+    }
+
+    .active,
+    .active:before,
+    .active a {
+      background: $highlighter;
+      color: $grayDark;
+    }
+  }
+}
+
+.page-template-page-handbook-php .letter {
+  background-image: none;
+  padding-top: $baseLineHeight * 2;
+
+  h2 {
+    background: url(../images/hr-black.png) repeat-x bottom;
+    color: $gray;
+    margin-bottom: $baseLineHeight * 1.5;
+  }
+
+  h3 {
+    color: $redDark;
+    margin-bottom: $baseLineHeight;
+
+    &:before {
+      @include opacity(50);
+      content: '✆';
+      margin-right: 10px;
+    }
+  }
+
+  h4 {
+    font-weight: bold;
+    margin-bottom: $baseLineHeight / 2;
+    text-transform: uppercase;
+  }
+
+  a:hover { background: $highlighter; }
+
+  figure {
+    @extend .thumbnail;
+    display: inline-block;
+
+    &.full {
+      display: block;
+      img { width: 100%; }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+/* ==============================================================================
+ * Animations
+ * =========================================================================== */
+
+.fade {
+  @include opacity(0);
+  @include transition(opacity .15s linear);
+
+  &.in {
+    @include opacity(100);
+  }
+}
+
+.collapse {
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  @include transition(height .35s ease);
+
+  &.in {
+    height: auto;
+  }
+}

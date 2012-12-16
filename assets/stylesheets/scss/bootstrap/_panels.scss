@@ -1,0 +1,58 @@
+/* ==============================================================================
+   Wells
+ * =========================================================================== */
+
+/* Base Styles
+-------------------------------------------------- */
+
+.well,
+.panel,
+.letter {
+  @include border-radius();
+  margin-bottom: 20px;
+  min-height: 20px;
+  padding: 10px;
+}
+
+/* Well
+-------------------------------------------------- */
+
+.well {
+  @include box-shadow( inset 0 1px 2px rgba(0,0,0,.25) );
+  background: darken($graySnake, 2%);
+}
+
+/* Panel
+-------------------------------------------------- */
+
+.panel {
+  @include box-shadow( 0 1px 2px rgba(0,0,0,.25) );
+  background: $white;
+}
+
+/* Letter
+-------------------------------------------------- */
+
+.letter {
+  @include box-shadow( 2px 2px 1px rgba(0,0,0,0.15) );
+  background: $grayWash url(../images/logo-telco-seal.png) no-repeat ($baseLineHeight * 2) $baseLineHeight;
+  padding: $baseLineHeight * 2;
+  padding-top: $baseLineHeight * 4;
+
+  em {
+    font-size : $baseFontSize;
+    word-spacing: 0.25em;
+  }
+
+  @include media($smallScreen) {
+    background-position: $baseLineHeight $baseLineHeight;
+    padding: $baseLineHeight;
+    padding-top: $baseLineHeight * 4;
+  }
+
+  @include media($smallerScreen) {
+    background-position: ($baseLineHeight / 2) $baseLineHeight;
+    padding: $baseLineHeight / 2;
+    padding-top: $baseLineHeight * 4;
+  }
+}

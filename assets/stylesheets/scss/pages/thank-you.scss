@@ -1,0 +1,29 @@
+
+/* ==============================================================================
+ * Thank You Page
+ * =========================================================================== */
+
+body.thank-you {
+  background: url(../images/animations/stars.gif) repeat;
+
+  h1,
+  p {
+    color: $white;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: $baseFontSize * 5;
+    margin-bottom: $baseLineHeight * 3;
+  }
+
+  p {
+    font-size: $baseFontSize * 2;
+    line-height: $baseLineHeight * 2;
+  }
+
+  p small {
+    font-size: 16px;
+    color: $grayLighter;
+  }
+}

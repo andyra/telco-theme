@@ -1,0 +1,68 @@
+
+/* ==============================================================================
+ * Dispatch Archive
+ * =========================================================================== */
+
+.filter-categories {
+  @extend .filter;
+}
+
+body.blog,
+body.archive {
+
+  .post {
+    @include border-radius();
+    @include box-shadow( 2px 2px 1px rgba(0,0,0,0.15) );
+    @include box-sizing(border-box);
+    background: $paper;
+    margin-bottom: $baseLineHeight * 2;
+    max-width: 645px;
+    padding: 10px;
+  }
+
+  .post header {
+    @include border-radius(3px 3px 0 0);
+    background: $grayDark url(../images/grain-dark.png) repeat;
+    padding: 10px $baseLineHeight;
+
+    h2,
+    time {
+      text-shadow: 0 -1px 0 rgba(0,0,0,.35);
+    }
+
+    h2 {
+      font-size: $baseFontSize + 2px;
+      margin-bottom: 0;
+      line-height: $baseLineHeight;
+
+      a { color: $aquaLight;
+        &:hover { color: $white; }
+      }
+    }
+
+    time { color: $grayLighter; }
+
+    .author {
+      @include border-radius();
+      @include box-shadow(inset 0 0 3px $black);
+      background: $grayDarker;
+      color: $red;
+      float: right;
+      padding: 0 10px;
+    }
+  }
+
+  .post.category-image .image {
+    text-align: center;
+  }
+
+  .post.category-phone-book .id-card {
+    @include box-shadow(none);
+    border-width: 0;
+    margin: 0;
+  }
+
+  .post.category-idea .content {
+    padding: $baseLineHeight * 2;
+  }
+}

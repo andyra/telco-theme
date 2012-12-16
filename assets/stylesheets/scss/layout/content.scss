@@ -1,0 +1,62 @@
+
+/* ==============================================================================
+ * Global Content
+ * =========================================================================== */
+
+html, body { overflow-x: hidden; }
+
+body {
+  @include text-selection($red, $white);
+  @include responsiveTags(true);
+  background: $graySnake url('../images/grain-light.png') repeat;
+  color: $baseFontColor;
+  font-family: $baseFontFamily;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+  margin: 0;
+  padding: 0 $largestScreenPadding;
+  -webkit-font-smoothing: antialiased;
+
+  @include media($largeScreen)   { padding: 0 $largeScreenPadding; }
+  @include media($smallerScreen) { padding: 0 $smallerScreenPadding; }
+}
+
+.wrap {
+  @include outer-container;
+  background: $white;
+
+  @include media($largeScreen)  { width: $mediumScreenSize - ($largeScreenPadding * 2); }
+  @include media($mediumScreen) { width: 100%;  }
+}
+
+.content {
+  @include clearfix;
+  margin-top: $baseLineHeight * 2;
+
+  @include media($mediumScreen) {
+    margin-top: $baseLineHeight;
+  }
+
+  @include media($smallScreen) {
+    margin-top: $baseLineHeight / 2;
+  }
+}
+
+/* Typekit Font Preloader
+* Adds a spinner + fade in while the font is loading
+-------------------------------------------------- */
+
+.wf-loading {
+  height: 100%;
+  overflow: hidden;
+  background: $white url(../images/preloader.gif) center center no-repeat fixed;
+}
+
+.wf-active body,
+.wf-inactive body {
+  @include transition(.15s ease-out all);
+}
+
+.wf-loading * {
+  @include opacity(0);
+}

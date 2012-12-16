@@ -1,0 +1,13 @@
+
+/* ==============================================================================
+ * Footer
+ * =========================================================================== */
+
+.wrap > footer {
+  @include clearfix();
+  margin-top: $baseLineHeight * 3;
+  padding: ($baseLineHeight * 2) 0;
+  text-align: center;
+
+  small { @include opacity(50); }
+}

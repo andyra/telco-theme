@@ -1,0 +1,327 @@
+/* ==============================================================================
+   Type
+   Headings, body text, lists, code, and more for a versatile and durable typography system
+ * =========================================================================== */
+
+/* Body Text
+-------------------------------------------------- */
+
+p {
+  margin: 0 0 $baseLineHeight / 2;
+
+  &.lead {
+    font-size: $mediumFont;
+    line-height: $baseLineHeight * 1.25;
+  }
+}
+
+/* Links
+-------------------------------------------------- */
+
+a {
+  @include transition();
+  color: $linkColor;
+  text-decoration: none;
+
+  &:hover {
+    color: $linkColorHover;
+    text-decoration: none;
+  }
+}
+
+/* Headings
+-------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  color: $grayDark;
+  font-weight: normal;
+  margin: 0;
+  text-rendering: optimizelegibility; // Fix the character spacing for headings
+}
+
+h1 {
+  font-size: $largestFont;
+  line-height: $baseLineHeight * 2;
+  margin-bottom: $baseLineHeight * 2;
+}
+
+h2 {
+  font-size: $largerFont;
+  line-height: $baseLineHeight * 2;
+}
+
+h3 {
+  font-size: $largeFont;
+  line-height: $baseLineHeight * 1.5;
+}
+
+h4 {
+  font-size: $mediumFont;
+  line-height: $baseLineHeight;
+}
+
+h5 {
+  font-size: $smallFont;
+  line-height: $baseLineHeight;
+}
+
+h6 {
+  color: $grayLight;
+  font-size: $smallFont;
+  line-height: $baseLineHeight;
+  text-transform: uppercase;
+}
+
+// Responsive
+@include media($smallScreen) {
+  h1 {
+    font-size: $largerFont;
+    line-height: $baseLineHeight * 2;
+    margin-bottom: $baseLineHeight;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: $largeFont;
+    line-height: $baseLineHeight * 1.5;
+  }
+
+  h3 {
+    font-size: $mediumFont;
+    line-height: $baseLineHeight;
+  }
+}
+
+/* Lists
+-------------------------------------------------- */
+
+ul, ol {
+  margin: 0 0 $baseLineHeight / 2 25px;
+  padding: 0;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol,
+.list-numbered {
+  counter-reset: li;
+  margin-left: 0;
+  padding-left: 0;
+
+  > li {
+    color: $black;
+    list-style: none;
+    margin: 0 0 0 2em;
+    padding-left: .5em;
+    position: relative;
+
+    &:before {
+      @include box-sizing(border-box);
+      color: $grayLight;
+      content: counter(li)'.'; // Use the counter as content
+      counter-increment: li; // Increment the counter by 1
+      display: inline-block;
+      left: -2em;
+      position: absolute;
+      text-align: right;
+      width: 2em;
+    }
+  }
+
+  ol {
+    margin-top: 6px;
+    li:last-child { margin-bottom: 0; }
+  }
+}
+
+.list-striped {
+  li:nth-child(odd),
+  li:nth-child(odd):before {
+    background: transparent url('../images/pattern-hatching-blue.png') repeat;
+  }
+}
+
+li {
+  line-height: $baseLineHeight;
+}
+
+ul.unstyled {
+  margin-left: 0;
+  list-style: none;
+}
+
+// Description Lists
+dl {
+  margin-bottom: $baseLineHeight;
+}
+
+dt,
+dd {
+  line-height: $baseLineHeight;
+}
+
+dt {
+  font-weight: bold;
+  line-height: $baseLineHeight - 1; // fix jank Helvetica Neue font bug
+}
+
+dd {
+  margin-left: $baseLineHeight / 2;
+}
+
+// Horizontal layout (like forms)
+.dl-horizontal {
+  dt {
+    float: left;
+    width: 120px;
+    clear: left;
+    text-align: right;
+    @include text-overflow();
+  }
+
+  dd { margin-left: 130px; }
+
+  @include media(mobile-all) {
+    dt {
+      float: none;
+      clear: none;
+      width: auto;
+      text-align: left;
+    }
+
+    dd { margin-left: 0; }
+  }
+}
+
+/* Misc
+-------------------------------------------------- */
+
+// Horizontal rules
+hr {
+  border-bottom: 1px solid $white;
+  border-top: 1px solid $hrBorder;
+  border: 0;
+  margin: $baseLineHeight 0;
+}
+
+// Emphasis
+strong {
+  font-weight: bold;
+}
+
+em { font-family: $altFontFamily; }
+
+.underline { text-decoration: underline; }
+
+.muted {
+  color: $grayLight;
+}
+
+// Abbreviations and acronyms
+abbr[title] {
+  border-bottom: 1px dotted $grayLight;
+  cursor: help;
+}
+
+abbr.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+// Blockquotes
+blockquote {
+  @include box-sizing(border-box);
+  @include border-radius();
+  background: url(../images/pattern-hatching-blue.png) repeat;
+  margin: 0;
+  padding: $baseLineHeight / 2;
+
+  p {
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: $baseLineHeight * 1.25;
+  }
+
+  small {
+    color: $grayLight;
+    display: block;
+    line-height: $baseLineHeight;
+
+    &:before {
+      content: '\2014 \00A0';
+    }
+  }
+
+  .quote {
+    color: $grayLight;
+    font-size: $baseFontSize * 2;
+
+    &.left { float: left; }
+    &.right { float: right; }
+  }
+
+  em {
+    color: $grayDark;
+    font-size: $baseFontSize + 8px;
+  }
+
+  cite {
+    display: block;
+    color: $gray;
+    margin-top: $baseLineHeight / 2;
+    text-align: right;
+  }
+
+  // Float right with text-align: right
+  &.pull-right {
+    border-left: 0;
+    border-right: 5px solid $grayLighter;
+    float: right;
+    padding-left: 0;
+    padding-right: 15px;
+
+    p,
+    small {
+      text-align: right;
+    }
+  }
+}
+
+// Quotes
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+  content: "";
+}
+
+// Addresses
+address {
+  display: block;
+  font-style: normal;
+  line-height: $baseLineHeight;
+  margin-bottom: $baseLineHeight;
+}
+
+// Misc
+small { font-size: 100%; }
+cite { font-style: normal; }
+
+/* Code
+-------------------------------------------------- */
+
+code {
+  @include border-radius();
+  background: $highlighter;
+  font-family: $baseFontFamily;
+}

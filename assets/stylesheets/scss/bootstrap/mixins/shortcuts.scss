@@ -1,0 +1,289 @@
+
+/* ==============================================================================
+ * Shortcut Mixins
+ * =========================================================================== */
+
+// Hide text
+// https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+@mixin hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+// Full-width background
+@mixin full-width-background($background) {
+  background: $background;
+  position: relative;
+
+  &:before,
+  &:after {
+    background: $background;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 9999px;
+    z-index: $zindexFixedHeader;
+  }
+
+  &:before { right: 100%; }
+  &:after  { left: 100%; }
+}
+
+// Thumbnail span
+@mixin thumbnail-span($span) {
+  $nth: 12 / $span;
+  $container-columns: container-span($span);
+
+  // Reset float clearing and margins on all elements
+  &:nth-child(1n) {
+    clear: none;
+    margin-right: flex-gutter($container-columns);
+  }
+
+  // Set width, margin, and float clearing
+  @include span-columns($span);
+  @include nth-omega(#{$nth}n);
+  &:nth-child(#{$nth}n+1) { clear: left; }
+}
+
+// Placeholder Text
+@mixin placeholder($color: $grayLighter) {
+  input:-moz-placeholder { color: $color; }
+  input:-ms-input-placeholder { color: $color; }
+  input::-webkit-input-placeholder { color: $color; }
+}
+
+// Size
+@mixin size($height, $width) {
+  width: $width;
+  height: $height;
+}
+
+// Square
+@mixin square($size) {
+  @include size($size, $size);
+}
+
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Text Shadows
+@mixin textShadow($value) {
+  @if $value == 'light' {
+    text-shadow: 0 1px 0 $white;
+  } @else {
+    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+  }
+}
+
+/* Cross-browser CSS3
+-------------------------------------------------- */
+
+// Backface visibility
+// Prevent browsers from flickering when using CSS 3D transforms.
+// Default value is `visible`, but can be changed to `hidden
+// See git pull https://github.com/dannykeane/bootstrap.git backface-visibility for examples
+@mixin backface-visibility($visibility){
+  -webkit-backface-visibility: $visibility;
+     -moz-backface-visibility: $visibility;
+      -ms-backface-visibility: $visibility;
+          backface-visibility: $visibility;
+}
+
+// Background clipping
+// Heads up: FF 3.6 and under need "padding" instead of "padding-box"
+@mixin background-clip($clip) {
+  -webkit-background-clip: $clip;
+     -moz-background-clip: $clip;
+          background-clip: $clip;
+}
+
+// Background sizing
+@mixin background-size($size) {
+  -webkit-background-size: $size;
+     -moz-background-size: $size;
+       -o-background-size: $size;
+          background-size: $size;
+}
+
+// Border Radius
+@mixin border-radius($radius: 2px) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+
+// Box sizing
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+      -ms-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
+}
+
+// CSS3 Content Columns
+@mixin content-columns($columnCount, $columnGap: $gridGutterWidth) {
+  -webkit-column-count: $columnCount;
+     -moz-column-count: $columnCount;
+          column-count: $columnCount;
+  -webkit-column-gap: $columnGap;
+     -moz-column-gap: $columnGap;
+          column-gap: $columnGap;
+}
+
+// Drop shadows
+@mixin box-shadow( $shadow: 1px 2px 1px rgba(0,0,0,.35) ) {
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+// Hyphenation
+@mixin hyphens($mode: auto) {
+  word-wrap: break-word;
+  -webkit-hyphens: $mode;
+     -moz-hyphens: $mode;
+      -ms-hyphens: $mode;
+       -o-hyphens: $mode;
+          hyphens: $mode;
+}
+
+// Mask Image
+@mixin mask-image($image) {
+  -webkit-mask-image: url($image);
+     -moz-mask-image: url($image);
+       -o-mask-image: url($image);
+          mask-image: url($image);
+}
+
+// Matrix
+@mixin matrix($u, $v, $w, $x, $y, $z) {
+  -webkit-transition: ($u, $v, $w, $x, $y, $z);
+     -moz-transition: ($u, $v, $w, $x, $y, $z);
+      -ms-transition: ($u, $v, $w, $x, $y, $z);
+       -o-transition: ($u, $v, $w, $x, $y, $z);
+          transition: ($u, $v, $w, $x, $y, $z);
+}
+
+// Opacity
+@mixin opacity($opacity) {
+  opacity: $opacity / 100;
+  filter: alpha(opacity=$opacity);
+}
+
+// Resize anything
+@mixin resizable($direction) {
+  resize: $direction; // Options: horizontal, vertical, both
+  overflow: auto; // Safari fix
+}
+
+// Scale
+@mixin scale($ratio) {
+  -webkit-transform: scale($ratio);
+     -moz-transform: scale($ratio);
+      -ms-transform: scale($ratio);
+       -o-transform: scale($ratio);
+          transform: scale($ratio);
+}
+
+// Skew
+@mixin skew($x, $y) {
+  -webkit-transform: skew($x, $y);
+     -moz-transform: skew($x, $y);
+      -ms-transform: skew($x, $y);
+       -o-transform: skew($x, $y);
+          transform: skew($x, $y);
+}
+
+// Transformations
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+     -moz-transform: rotate($degrees);
+      -ms-transform: rotate($degrees);
+       -o-transform: rotate($degrees);
+          transform: rotate($degrees);
+}
+
+@mixin text-selection($background: $blue, $color: $white) {
+  ::-moz-selection {
+    background: $background;
+    color: $color;
+    text-shadow: none;
+  }
+
+  ::selection {
+    background: $background;
+    color: $color;
+    text-shadow: none;
+  }
+}
+
+// Translate 2D
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+     -moz-transform: translate($x, $y);
+      -ms-transform: translate($x, $y);
+       -o-transform: translate($x, $y);
+          transform: translate($x, $y);
+}
+
+// Translate 3D
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate($x, $y, $z);
+     -moz-transform: translate($x, $y, $z);
+      -ms-transform: translate($x, $y, $z);
+       -o-transform: translate($x, $y, $z);
+          transform: translate($x, $y, $z);
+}
+
+// Transition
+@mixin transition($transition: all .1s ease-in-out) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+      -ms-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+
+@mixin transition-duration($duration: 0.1s) {
+  -webkit-transition-duration: $duration;
+     -moz-transition-duration: $duration;
+      -ms-transition-duration: $duration;
+       -o-transition-duration: $duration;
+          transition-duration: $duration;
+}
+
+@mixin transition-property($property: all) {
+  -webkit-transition-property: $property;
+     -moz-transition-property: $property;
+      -ms-transition-property: $property;
+       -o-transition-property: $property;
+          transition-property: $property;
+}
+
+@mixin transition-timing-function($timing: 'linear') {
+  -webkit-transition-timing-function: $timing;
+     -moz-transition-timing-function: $timing;
+      -ms-transition-timing-function: $timing;
+       -o-transition-timing-function: $timing;
+          transition-timing-function: $timing;
+}
+
+// User select
+// For selecting text on the page
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+      -ms-user-select: $select;
+       -o-user-select: $select;
+          user-select: $select;
+}

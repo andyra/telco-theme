@@ -1,0 +1,188 @@
+
+/* ==============================================================================
+ * Dropdown Menus
+ * =========================================================================== */
+
+// Use the .menu class on any <li> element within the topbar or ul.tabs and you'll get some superfancy dropdowns
+.dropdown { position: relative; }
+
+.dropdown-toggle {
+  // The caret makes the toggle a bit too tall in IE7
+  *margin-bottom: -3px;
+}
+
+.dropdown-toggle:active,
+.open .dropdown-toggle {
+  outline: 0;
+}
+
+// Dropdown arrow/caret
+.caret {
+  @include transition();
+  @include opacity(30);
+  border-left:  4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top:   4px solid $black;
+  content: "\2193";
+  display: inline-block;
+  height: 0;
+  width: 0;
+  text-indent: -99999px;
+  // IE7 won't do the border trick if there's a text indent, but it doesn't
+  // do the content that text-indent is hiding, either, so we're ok.
+  *text-indent: 0;
+  vertical-align: top;
+}
+
+.dropdown .caret {
+  margin-left: 2px;
+  margin-top: 8px;
+}
+
+.dropdown:hover .caret,
+.open.dropdown .caret {
+  @include opacity(100);
+}
+
+// The dropdown menu (ul)
+.dropdown-menu {
+  @include border-radius(0 0 3px 3px);
+  @include box-shadow(1px 3px 10px rgba(black,.35));
+  background-color: $white;
+  border: none;
+  display: none; // none by default, but block on "open" of the menu
+  float: left;
+  left: 0;
+  list-style: none;
+  margin: 0; // override default ul
+  min-width: 160px;
+  _width: 160px;
+  padding: 4px 0;
+  position: absolute;
+  top: 100%;
+  z-index: $zindexDropdown;
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+
+  // Allow for dropdowns to go bottom up (aka, dropup-menu)
+  &.bottom-up {
+    bottom: 100%;
+    margin-bottom: 2px;
+    top: auto;
+  }
+
+  // Dividers (basically an hr) within the dropdown
+  .divider {
+    background-color: $white;
+    border-bottom: 1px solid $grayLightest;
+    height: 1px;
+    margin: 5px 1px;
+    overflow: hidden;
+
+    // IE7 needs a set width since we gave a height. Restricting just
+    // to IE7 to keep the 1px left/right space in other browsers.
+    // It is unclear where IE is getting the extra space that we need
+    // to negative-margin away, but so it goes.
+    *width: 100%;
+    *margin: -5px 0 5px;
+  }
+
+  // Links within the dropdown menu
+  a {
+    @include transition(none);
+    clear: both;
+    color: $baseFontColor;
+    display: block;
+    font-size: $smallFont;
+    font-weight: normal;
+    line-height: $baseLineHeight;
+    padding: 0 10px;
+    white-space: nowrap;
+  }
+}
+
+// Hover state
+.dropdown-menu li > a:hover {
+  @include transition(none);
+  background-color: $aqua;
+  color: $white;
+  text-shadow: 0 -1px 0 rgba(black,.25);
+}
+
+// Active link in the dropdown
+.dropdown-menu li.active > a,
+.dropdown-menu li.active > a:hover {
+  background: $grayWash;
+  color: $gray;
+  text-shadow: none;
+}
+
+// Open state for the dropdown
+.dropdown.open {
+  // IE7's z-index only goes to the nearest positioned ancestor, which would
+  // make the menu appear below buttons that appeared later on the page
+  *z-index: $zindexDropdown;
+
+  .dropdown-toggle,
+  .dropdown-toggle:hover {
+    background: $grayDark;
+    color: $white;
+  }
+
+  .caret {
+    @include opacity(100);
+    color: $aquaLight;
+  }
+
+  &.active .dropdown-toggle,
+  &.active .dropdown-toggle:hover {
+    color: $white;
+    text-shadow: 0 -1px 0 rgba(black, .5);
+  }
+
+  .dropdown-menu { display: block; }
+}
+
+/* Mobile Nav
+-------------------------------------------------- */
+
+@include media($smallScreen) {
+
+  .nav-mobile {
+    @include border-radius(3px);
+    @include box-shadow(inset 0 1px 4px rgba(black,.35));
+    -webkit-transform: translate3d(0, 0, 0); // activate the GPU
+    background: $grayWash;
+    clear: both;
+    float: none;
+    overflow: hidden;
+    position: relative;
+
+    > li {
+      background: none;
+      border: none;
+      display: block;
+      float: none;
+      margin: 0;
+
+      > a {
+        border: none;
+        border-bottom: 1px solid darken($grayWash, 5%);
+        border-top: 1px solid $white;
+        color: $aqua;
+        line-height: $headerHeight - 2px;
+        padding: 0 10px;
+        text-shadow: 0 1px 0 $white;
+
+        &:hover {
+          background: none;
+          color: $black;
+        }
+      }
+    }
+  }
+
+}

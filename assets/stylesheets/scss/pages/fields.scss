@@ -1,0 +1,36 @@
+
+/* ==============================================================================
+ * Fields Pages
+ * =========================================================================== */
+
+body.fields {
+
+  th { text-align: center;
+    &:first-child { text-align: left; }
+  }
+
+  td span {
+    @include border-radius(12px);
+    @include box-shadow( 0 1px 3px rgba(black, .25) );
+    @include square(24px);
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(white,.25);
+  }
+
+  .present {
+    background: rgba($aqua, .15);
+    color: $aqua;
+  }
+
+  .missing {
+    background : rgba($red, .15);
+    color: $red;
+  }
+
+  section.track,
+  section.collection {
+    th:nth-child(2) { text-align: left; }
+  }
+}

@@ -1,0 +1,192 @@
+
+/* ==============================================================================
+ * Global Header
+ * =========================================================================== */
+
+/* Base Header
+-------------------------------------------------- */
+
+.header {
+  height: 188px;
+  padding-top: $baseLineHeight;
+  text-align: center;
+}
+
+/* Logo
+-------------------------------------------------- */
+
+.header .logo {
+  @include opacity(85);
+  @include size(148px, (300px + $largestScreenPadding * 2));
+  @include transition();
+  background: url(../images/logo-telco.png) center center no-repeat;
+  display: inline-block;
+  float: left;
+  margin: 0 auto $baseLineHeight;
+  padding: 0 $largestScreenPadding;
+  text-indent: -9999px;
+
+  &:hover { @include opacity(100); }
+}
+
+/* Nav Toggle
+-------------------------------------------------- */
+.nav-toggle {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAARCAYAAAAyhueAAAAAKUlEQVQ4jWMwt7S4BMT/qYgvMVDZQDBmoIlLRwH1wWiSGgVUBiM7SQEAyo02P7S1YJcAAAAASUVORK5CYII=') no-repeat 10px;
+  border: none;
+  display: none;
+  line-height: $navMobileHeight;
+  padding-left: 40px;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+/* Nav
+-------------------------------------------------- */
+.header .nav {
+  @include clearfix;
+  float: right;
+  // Override the default collapsed state
+  height: auto;
+  overflow: visible;
+
+  > li {
+    display: block;
+    float: left;
+    margin-right: 10px;
+
+    > a {
+      @include border-radius();
+      @include box-shadow(1px 1px 2px rgba(black,.1));
+      color: $grayDark;
+      background: $graySnake;
+      font-size: $mediumFont;
+      line-height: $headerHeight - 2px;
+      padding: 0 ($largestScreenPadding / 2);
+
+      &:hover {
+        // background: $grayDark;
+        color: $aqua;
+      }
+    }
+  }
+
+  .caret { margin-top: 20px; }
+
+  // Hide the default responsive "Menu" link
+  .menu-menu { display: none; }
+}
+
+/* ==============================================================================
+ * Responsive Header Styles
+ * =========================================================================== */
+
+/* Large Screen
+-------------------------------------------------- */
+
+@include media($largeScreen) {
+  .header {
+    margin: 0 (-$largeScreenPadding);
+
+    .logo {
+      margin-left: -$largeScreenPadding;
+      padding: $largeScreenPadding;
+      width: 125px + ($largeScreenPadding * 2);
+    }
+  }
+}
+
+/* Medium Screen
+-------------------------------------------------- */
+
+@include media($mediumScreen) {
+  .header {
+    .logo { margin-left: 0; }
+    .nav { margin: 0; }
+  }
+}
+
+/* Small Screen (mobile nav starts here)
+-------------------------------------------------- */
+
+@include media($smallScreen) {
+
+  // Show the nav toggle
+  .nav-toggle { display: inline-block; }
+
+  .header {
+    height: auto;
+
+    // Center the logo
+    .wrap { text-align: center; }
+
+    .logo {
+      @include opacity(80);
+      float: none;
+      margin: 0 auto;
+    }
+
+    .nav {
+      @include border-radius(3px);
+      float: none;
+      margin: 0 5px 5px;
+      height: 0;
+      overflow: hidden;
+      text-align: left;
+
+      > li {
+        float: none;
+      }
+
+      // Top level open links
+      > li.open > a {
+        border-bottom-color: transparent;
+        text-shadow: 0 -1px 0 rgba(black,.5);
+      }
+
+      > li:first-child a {
+        @include border-radius(3px 3px 0 0);
+      }
+
+      // Submenu
+      .dropdown-menu {
+        @include border-radius(0);
+        @include box-shadow(inset 0 -1px 4px rgba(black,.35));
+        background: $white;
+        border: none;
+        display: none;
+        float: none;
+        left: auto;
+        margin: 0;
+        padding: 0;
+        position: static;
+        top: auto;
+
+        > li > a {
+          color: $gray;
+          line-height: $headerHeight - 2px;
+          font-size: $baseFontSize;
+          padding-left: 20px;
+
+          &:hover {
+            background: $aqua;
+            color: $white;
+          }
+        }
+
+      }
+    }
+
+    .nav .open > .dropdown-menu {
+      display: block;
+    }
+  }
+}
+
+/* Smaller Screen
+-------------------------------------------------- */
+
+@include media($smallerScreen) {
+  .header { margin: 0 (-$smallerScreenPadding); }
+}

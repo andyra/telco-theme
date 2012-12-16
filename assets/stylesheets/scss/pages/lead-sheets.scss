@@ -1,0 +1,15 @@
+
+/* ==============================================================================
+ * View Lead Sheets Page
+ * =========================================================================== */
+
+body.lead-sheets {
+  .disabled {
+    color: $grayLight;
+    text-decoration: line-through;
+  }
+
+  .lead-sheet {
+    padding: ($baseLineHeight / 2) $baseLineHeight;
+  }
+}

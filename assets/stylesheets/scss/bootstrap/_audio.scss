@@ -1,0 +1,129 @@
+
+/* ==============================================================================
+ * Audio.js
+ * =========================================================================== */
+
+$playerHeight: 52px;
+
+.audiojs {
+  @include border-radius();
+  @include box-shadow(0 1px 4px rgba(black,.25));
+  background: $white;
+  height: $playerHeight;
+  margin-bottom: $baseLineHeight / 2;
+
+  .play-pause,
+  .play-pause p {
+    @include square($playerHeight);
+  }
+
+  .play-pause {
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    p {
+      background: url(../images/audio-controls.png) no-repeat;
+      border-right: 1px solid $grayWash;
+
+      &:hover {
+        background-color: $aqua;
+        border-right-color: darken($aqua, 5%);
+        cursor: pointer;
+      }
+    }
+
+    .play  { background-position: 2px    0px; }
+    .pause { background-position: 0px  -52px; }
+
+    .error {
+      @include opacity(50);
+      background-position: 0px -104px;
+      border-right-color: $grayLightest;
+
+      &:hover {
+        background-color: transparent;
+        border-right-color: $grayLightest;
+        cursor: default;
+      }
+    }
+
+    .loading { background: url(../images/preloader.gif); }
+  }
+
+  .error-message {
+    color: $red;
+    font-family: $baseFontFamily;
+    height: auto;
+    line-height: $baseLineHeight;
+    margin: 0;
+    width: auto;
+  }
+
+  .info {
+    margin-left: 65px;
+    padding: 5px 15px 5px 0;
+  }
+
+  .title {
+    color: $grayDark;
+    display: inline-block;
+    font-family: $baseFontFamily;
+    font-size: $baseFontSize;
+    line-height: $baseLineHeight;
+  }
+
+  .scrubber {
+    @include border-radius();
+    @include box-shadow(inset 0 1px 2px rgba(black,.15));
+    background: $grayWash;
+    border: none;
+    float: none;
+    margin: 0;
+    width: 100%;
+  }
+
+  .scrubber,
+  .scrubber div {
+    height: 10px;
+  }
+
+  .loaded {
+    @include border-radius();
+    @include box-shadow(inset 0 1px 2px rgba(black,.15));
+    @include gradient-vertical($grayWash, $grayLightest);
+  }
+
+  .progress {
+    @include border-radius(2px 0 0 2px);
+    @include gradient-vertical($aquaLight, $aqua);
+  }
+
+  .time {
+    color: $grayLight;
+    display: inline-block;
+    line-height: $baseLineHeight;
+    float: right;
+  }
+
+  .played,
+  .duration {
+    color: $gray;
+    font-family: $helvetica;
+    font-size: $smallFont;
+    font-style: normal;
+    font-weight: normal;
+    line-height: $baseLineHeight;
+    text-shadow: none;
+  }
+
+  .played {
+    margin-right: 5px;
+  }
+
+  .duration {
+    color: $grayLight;
+    margin-left: 5px;
+  }
+
+}

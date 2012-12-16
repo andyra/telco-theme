@@ -1,0 +1,335 @@
+
+/* ==============================================================================
+ * Setlist Computer Page
+ * =========================================================================== */
+
+/* Setlist
+-------------------------------------------------- */
+
+.setlist {
+  @include span-columns(8);
+  display: none;
+
+  li {
+    font-size: $mediumFont;
+    line-height: $baseLineHeight * 1.25;
+  }
+
+  .bleed {
+    display: inline-block;
+    color: $redDark;
+    margin: 0;
+  }
+
+  .strategy {
+    @include border-radius();
+    background: $grayWash;
+    color: $grayLight;
+    display: inline-block;
+    font-family: $altFontFamily;
+    font-style: italic;
+    line-height: $baseLineHeight;
+    padding: 0 5px;
+  }
+
+  footer {
+    border-top: 2px solid $grayLightest;
+    padding-top: $baseLineHeight;
+  }
+}
+
+/* Lead Sheet
+-------------------------------------------------- */
+.lead-sheet {
+  @include border-radius();
+  @include box-shadow();
+  background: $paper;
+  margin-left: 0;
+  padding: $baseLineHeight;
+
+  li {
+    list-style: none;
+    border-bottom: 3px solid $grayLightest;
+    padding: $baseLineHeight 0;
+
+    &:first-child { padding-top: 0; }
+    &:last-child { border-bottom: none; }
+  }
+
+  h2 {
+    background: url(../images/pattern-hatching-blue.png) repeat;
+    border-bottom: 1px dashed $blueLightest;
+    line-height: $baseLineHeight * 3;
+    font-family: $altFontFamily;
+    margin-top: $baseLineHeight / 2;
+    text-align: center;
+  }
+
+  h3 {
+    color: $gray;
+    margin-bottom: 0;
+  }
+
+  p {
+    font-size: $baseFontSize * 2.5;
+    line-height: $baseLineHeight * 2;
+    margin-bottom: 0;
+  }
+}
+
+/* Base Computer Styles
+-------------------------------------------------- */
+
+.computer {
+  @include border-radius(3px);
+  @include box-shadow( 0 1px 2px rgba(0,0,0,.35) );
+  @include box-sizing(border-box);
+  @include span-columns(4);
+
+  header,
+  hgroup {
+    @include clearfix();
+  }
+
+  h2, h3 { text-indent: -9999px; }
+
+  .slider {
+    @include border-radius(4px);
+    @include box-shadow(2px 1px 0 $white);
+    background: $black;
+    clear: right;
+    cursor: pointer;
+    height: $baseLineHeight * 7;
+    margin: 0 auto;
+    position: relative;
+    width: 6px;
+  }
+
+  .handle {
+    @include box-shadow( 2px 4px 2px rgba(0,0,0,.35) );
+    background: $grayDark url(../images/computer/slider.png);
+    cursor: move;
+    display: block;
+    height: 20px;
+    position: absolute;
+    width: 42px;
+    margin-left: -17px;
+  }
+
+  form,
+  footer {
+    padding: $baseLineHeight;
+    margin: 0;
+  }
+
+  form {
+    @include clearfix;
+    padding: 0 30px;
+  }
+
+  .control-group {
+    @include span-columns(4);
+  }
+
+  input[type="text"] {
+    @include box-sizing(border-box);
+    border: none;
+    font-family: 'digital';
+    font-size: $baseFontSize * 4;
+    font-style: normal;
+    font-weight: normal;
+    height: 48px;
+    margin: ($baseLineHeight / 2) 0 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  label {
+    text-align: center;
+    text-shadow: 0 1px 0 $white;
+    text-transform: uppercase;
+  }
+
+  footer {
+    padding-top: 0;
+    text-align: center;
+  }
+
+  button {
+  }
+}
+
+/* Westchister TL-998
+-------------------------------------------------- */
+
+.tl-998 {
+
+  .control-group {
+    background: transparent url(../images/computer/westchister-markers.png) no-repeat center 10px;
+  }
+
+  header {
+    @include border-radius(3px);
+    background: $grayDark url(../images/grain-dark.png) repeat;
+    border: 12px solid darken($grayDark, 5%);
+    border-right-color: lighten($grayDark, 5%);
+    border-top-color: lighten($grayDark, 15%);
+    border-bottom-color: darken($grayDark, 10%);
+    padding: ($baseLineHeight * .75) $baseLineHeight;
+
+    img { float: right; }
+  }
+
+  hgroup {
+    background: url(../images/computer/westchister-blinkers.gif) no-repeat right top;
+    border-bottom: 3px solid #9D283A;
+    padding-bottom: $baseLineHeight / 2;
+  }
+
+  h2, h3 {
+    background: url(../images/computer/westchister-heading.png) no-repeat;
+  }
+
+  h2 {
+    float: left;
+    height: 40px;
+    width: 125px;
+  }
+
+  h3 {
+    background-position: -208px -27px;
+    float: right;
+    height: 12px;
+    margin-top: 28px;
+    width: 53px;
+  }
+
+  form,
+  footer {
+    $beige: #E1E1D0;
+    background: $beige url(../images/computer/westchister-bg.png) repeat;
+    border: 8px solid darken($beige, 5%);
+    border-right-color: lighten($beige, 5%);
+    border-top-color: lighten($beige, 5%);
+    border-bottom-color: darken($beige, 10%);
+  }
+
+  form {
+    border-bottom: none;
+  }
+
+  input[type="text"] {
+    background: #81785B;
+    border: 4px solid #88887A;
+    color: $black;
+    text-shadow: 0 0 3px rgba(0,0,0,.5);
+  }
+
+  footer { border-top: none; }
+
+  footer label { display: none; }
+
+  button {
+    @include border-radius();
+    @include box-shadow(0 2px 0 white);
+    @include size(48px, 230px);
+    background: url(../images/computer/westchister-button.png) no-repeat center center;
+    border: 2px solid $grayDarker;
+    color: $white;
+    font-size: $baseFontSize * 1.5;
+    letter-spacing: .1em;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.65);
+    text-transform: uppercase;
+  }
+}
+
+/* Haywood C-9000
+-------------------------------------------------- */
+$haywoodGold: #D5943B;
+
+.c-9000 {
+  background: url(../images/computer/haywood-border.png) repeat-x top,
+              url(../images/computer/haywood-border.png) repeat-x bottom,
+              url(../images/computer/haywood-bg.png) repeat;
+  background-color: #3A404C;
+
+  hgroup {
+    maring-top: 10px;
+    padding: $baseLineHeight $baseLineHeight 0;
+  }
+
+  h2, h3 {
+    background: url(../images/computer/haywood-header.png) no-repeat 0 0;
+  }
+
+  h2 {
+    @include size (60px, 91px);
+    float: left;
+  }
+
+  h3 {
+    @include size (60px, 53px);
+    float: right;
+    background-position: right;
+  }
+
+  .slider {
+    @include box-shadow(1px 1px 1px rgba( 255,255,255,.15) );
+  }
+
+  input[type="text"] {
+    @include box-shadow(inset 0 1px 3px rgba(0,0,0,.65) );
+    background: #3E1911;
+    border-bottom: 1px solid #555A63;
+    color: #FF5F4A;
+    text-shadow: 0 0 5px #FF5F4A;
+  }
+
+  label {
+    color: $haywoodGold;
+    text-shadow: 0 -1px 0 black;
+  }
+
+  footer {
+    border: 1px solid $haywoodGold;
+    margin: 0 $baseLineHeight ($baseLineHeight * 2);
+    padding: $baseLineHeight $baseLineHeight;
+  }
+
+  button {
+    @include size(86px, 86px);
+    background: url(../images/computer/haywood-button.png) no-repeat top center;
+    border: none;
+    text-indent: -9999px;
+
+    &:hover {
+      background-position-y: -85px;
+    }
+  }
+}
+
+/* ==============================================================================
+ * Responsive
+ * =========================================================================== */
+
+.computer {
+
+  @include media($mediumScreen) {
+    @include clearfix();
+    .control-group {
+      float: left;
+    }
+  }
+
+  @include media($smallerScreen) {
+    form {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    &.c-9000 footer {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+}

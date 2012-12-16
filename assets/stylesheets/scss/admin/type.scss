@@ -1,0 +1,74 @@
+
+/* ==============================================================================
+ * Admin Type Styles
+ * =========================================================================== */
+
+$adminFont: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+$adminLinkColor: #1C8E90;
+
+body {
+  font-family: $adminFont;
+}
+
+// All Headers
+h2 .nav-tab,
+.wrap h2,
+.subtitle,
+.login form .input { }
+
+// Page header
+.wrap .icon32 + h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: $baseLineHeight / 2;
+
+  a {
+    font-family: $adminFont;
+    font-weight: normal;
+  }
+}
+
+// Links
+a,
+#the-comment-list p.comment-author strong a,
+#media-upload a.del-link,
+#media-items a.delete,
+.plugins a.delete,
+.ui-tabs-nav a {
+  color: $adminLinkColor;
+}
+
+// Menu
+#adminmenu a {
+  color: $adminLinkColor;
+  text-shadow: 0 1px 0 white;
+}
+
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+#adminmenu li.current a.menu-top,
+.folded #adminmenu li.wp-has-current-submenu,
+.folded #adminmenu li.current.menu-top,
+#adminmenu .wp-menu-arrow,
+#adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head,
+#adminmenu .wp-menu-arrow div {
+  background: #464646;
+}
+
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+#adminmenu li.current a.menu-top,
+#adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head {
+  border-bottom-color: #464646;
+  border-top-color: #464646;
+}
+
+#adminmenu .wp-submenu a:hover,
+#adminmenu .wp-submenu a:focus {
+  background-color: $greenLightest;
+}
+
+/* Fix a couple ACF rendering inconsistancies
+-------------------------------------------------- */
+
+ul.radio_list { padding-left: 2px !important; }
+#acf-track_type select { max-width: 52.5%; }
+#media-upload .acf-submit { clear: both !important; }

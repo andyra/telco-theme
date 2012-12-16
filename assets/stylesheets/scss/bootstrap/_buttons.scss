@@ -1,0 +1,152 @@
+/* ==============================================================================
+   Button Styles
+ * =========================================================================== */
+
+/* Base styles
+-------------------------------------------------- */
+
+.btn {
+  @include border-radius();
+  @include ie7-inline-block();
+  @include ie7-restore-left-whitespace(); // Give IE7 some love
+  @include transition();
+  background: $btnBackground;
+  border: none;
+  border-bottom: 2px solid $btnBorder;
+  border-right: 2px solid $btnBorder;
+  color: $blue;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+  *line-height: 20px;
+  margin-bottom: 0; // For input.btn
+  padding: 4px 10px 4px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255,255,255,.75);
+  vertical-align: middle;
+
+  &:hover,
+  &:active,
+  &.active {
+    background: $btnBackgroundHover;
+    color: $redDark;
+    text-decoration: none;
+
+    // transition is only when going to hover, otherwise the background
+    // behind the gradient (there for IE<=9 fallback) gets mismatched
+    @include transition(background-position .1s linear);
+  }
+
+  // Focus state for keyboard and accessibility
+  &:focus {
+    @include tab-focus();
+  }
+
+  // Disabled state
+  &.disabled,
+  &[disabled] {
+    background-color: darken($white, 10%);
+    background-image: none;
+    cursor: default;
+    @include opacity(65);
+    @include box-shadow(none);
+  }
+}
+
+/* Button Sizes
+-------------------------------------------------- */
+
+.btn-large {
+  font-size: $baseFontSize + 2px;
+  line-height: normal;
+  padding: 9px 14px;
+  @include border-radius(5px);
+
+  [class^="icon-"] {
+    margin-top: 1px;
+  }
+}
+
+.btn-small {
+  font-size: $baseFontSize - 2px;
+  line-height: $baseLineHeight - 2px;
+  padding: 5px 9px;
+
+  [class^="icon-"] {
+    margin-top: -1px;
+  }
+}
+
+.btn-mini {
+  font-size: $baseFontSize - 2px;
+  line-height: $baseLineHeight - 4px;
+  padding: 2px 6px;
+}
+
+/* Alternate buttons
+-------------------------------------------------- */
+
+// Set text color
+.btn-primary,
+.btn-primary:hover,
+.btn-secondary,
+.btn-secondary:hover {
+  color: $white;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+}
+
+// Provide *some* extra contrast for those who can get it
+.btn-primary.active,
+.btn-secondary.active {
+  color: rgba(255,255,255,.75);
+}
+
+// Set the backgrounds
+.btn-primary {
+  background: $red;
+  color: $redDark;
+  border-color: $redDark;
+  text-shadow: 0 1px 0 rgba(255,255,255,.15);
+
+  &:hover {
+    background: $redDark;
+    border-color: $red;
+    color: $red;
+  }
+}
+
+.btn-secondary {
+  @include buttonBackground($btnSecondaryBackground, $btnSecondaryBackgroundHighlight);
+}
+
+/* Cross-browser Jank
+-------------------------------------------------- */
+
+button.btn,
+input[type="submit"].btn {
+
+  // Firefox 3.6 only I believe
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  // IE7 has some default padding on button controls
+  *padding-top: 2px;
+  *padding-bottom: 2px;
+  &.btn-large {
+    *padding-top: 7px;
+    *padding-bottom: 7px;
+  }
+
+  &.btn-small {
+    *padding-top: 3px;
+    *padding-bottom: 3px;
+  }
+
+  &.btn-mini {
+    *padding-top: 1px;
+    *padding-bottom: 1px;
+  }
+}

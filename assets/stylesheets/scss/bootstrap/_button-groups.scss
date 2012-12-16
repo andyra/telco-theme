@@ -1,0 +1,139 @@
+
+/* ==============================================================================
+   Button Groups
+ * =========================================================================== */
+
+.btn-group {
+  @include ie7-restore-left-whitespace();
+  position: relative;
+
+  // Space out series of button groups
+  + .btn-group { margin-left: 5px; }
+
+  > .btn {
+    @include border-radius(0);
+    float: left;
+    margin-left: -1px;
+    position: relative;
+  }
+
+  > .btn:first-child {
+    @include border-radius(4px 0 0 4px);
+    margin-left: 0;
+  }
+
+  > .btn:last-child {
+    @include border-radius(0 4px 4px 0);
+  }
+
+  // On hover/focus/active, bring the proper btn to front
+  > .btn:hover,
+  > .btn:focus,
+  > .btn:active,
+  > .btn.active {
+    z-index: 2;
+  }
+}
+
+/* Filter
+-------------------------------------------------- */
+
+.filter {
+  @include border-radius();
+  @include box-shadow(0 1px 4px rgba(black,.35));
+  display: table;
+  margin-bottom: $baseLineHeight;
+  table-layout: fixed;
+  width: 100%;
+
+  > .btn {
+    background: $grayWash;
+    border: none;
+    border-bottom: 2px solid $blueLight;
+    border-right: 1px solid $blueLighter;
+    display: table-cell;
+    float: none;
+    text-align: center;
+    line-height: $baseLineHeight * 2;
+  }
+
+  > .btn:hover {
+    background-color: $white;
+    border-bottom-color: $red;
+    color: $red;
+  }
+
+  > .btn:active,
+  > .btn.active {
+    @include box-shadow(inset 1px 1px 3px rgba(black,0.5));
+    background: $gray url(../images/grain-dark.png) repeat;
+    border-left-color: $grayDark;
+    border-right-color: $gray;
+    border-bottom-color: $aqua;
+    color: $white;
+    text-shadow: 0 -1px 0 black;
+  }
+
+  // First-child won't work since we have a dropdown toggle, so we have to target this a different way
+  .filter-toggle + .btn {
+    @include border-radius(4px 0 0 4px);
+  }
+
+  > .btn:first-child {
+    border-left: none;
+  }
+
+  > .btn:last-child {
+    border-right: none;
+  }
+
+  // Makes sure the border for hovering buttons doesn't affect the active state
+  > .btn.active + .btn:hover { border-left-color: darken($redDark, 20%); }
+}
+
+@include media($smallScreen) {
+  .btn-group.filter {
+    @include clearfix();
+    display: block;
+
+    .btn {
+      @include border-radius(0);
+      border: none;
+      line-height: $navMobileHeight;
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      width: (100 / 3) * 1%;
+
+      // Top row
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        border-bottom: 1px solid darken($grayWash, 5%);
+      }
+
+      // Bottom row
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6) {
+        border-top: 1px solid $white;
+      }
+
+      // Left borders
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(5),
+      &:nth-child(6) {
+        border-left: 1px solid $white;
+      }
+
+      // Right borders
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(4),
+      &:nth-child(5) {
+        border-right: 1px solid darken($grayWash, 5%);
+      }
+    }
+  }
+}

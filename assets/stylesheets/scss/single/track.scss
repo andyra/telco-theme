@@ -1,0 +1,51 @@
+
+/* ==============================================================================
+ * Single Track
+ * =========================================================================== */
+
+.instances {
+  li {
+    @include clearfix();
+    border-bottom: 1px solid $grayLightest;
+    border-top: 1px solid $white;
+    padding: ($baseLineHeight / 2) 0;
+
+    &:first-child { border-top: none; }
+    &:last-child { border-bottom: none; }
+  }
+
+  .album-cover {
+    float: left;
+  }
+
+  div {
+    display: table-cell;
+    padding-left: 10px;
+    vertical-align: middle;
+  }
+
+  span {
+    display: block;
+    font-size: $baseFontSize + 2px;
+  }
+
+  @include media($smallScreen) {
+    .album-cover { @include square($baseLineHeight * 2); }
+  }
+}
+
+.lead-sheet .panel {
+  padding: 20px;
+
+  h4 {
+    @include border-radius();
+    @include box-shadow(1px 1px 0 rgba($blue, .5));
+    background: url(../images/pattern-hatching-blue.png) repeat;
+    padding: 0 5px;
+  }
+
+  p {
+    color: $gray;
+    font-size: $baseFontSize + 2px;
+  }
+}

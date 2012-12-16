@@ -1,0 +1,51 @@
+/* ==============================================================================
+   Close Icons
+ * =========================================================================== */
+
+.close {
+  @include opacity(20);
+  @include transition();
+  color: $black;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: $baseLineHeight;
+  text-shadow: 0 1px 0 rgba(255,255,255,1);
+
+  &:hover {
+    @include opacity(40);
+    color: $black;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+// Additional properties for button version
+// iOS requires the button element instead of an anchor tag.
+// If you want the anchor version, it requires `href="#"`.
+button.close {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  -webkit-appearance: none;
+}
+
+/* ==============================================================================
+   Utility Classes
+ * =========================================================================== */
+
+// Quick floats
+.pull-right { float: right; }
+.pull-left { float: left; }
+
+// Toggling content
+.hide { display: none; }
+.show { display: block; }
+
+// Visibility
+.invisible { visibility: hidden; }
+
+.hide-mobile {
+  @include media($smallerScreen) { display: none; }
+}

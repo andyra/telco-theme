@@ -1,0 +1,63 @@
+
+/* ==============================================================================
+ * Single Phone Book
+ * =========================================================================== */
+
+.id-card {
+  @include border-radius();
+  @include box-shadow(2px 2px 0 rgba(0,0,0,.1) );
+  @include box-sizing(border-box);
+  background-color: $white;
+  background: url(../images/id-stripe.png) repeat-x 20px 10px,
+              url(../images/certificate-bg.png) repeat;
+  border: 10px solid $white;
+  padding: ($baseLineHeight * 4) $baseLineHeight $baseLineHeight;
+  max-width: 645px;
+
+  dl {
+    margin: 0;
+  }
+
+  dt, dd { display: inline-block; }
+
+  dt {
+    font-family: $altFontFamily;
+    font-size: $baseFontSize + 4px;
+    text-transform: uppercase;
+  }
+
+  dd { margin-left: 0; }
+
+  dl:nth-child(3) dd,
+  dl:nth-child(4) dd { color: $redDark; }
+
+  figcaption { text-align: right; }
+}
+
+.category-phone-book {
+  li,
+  li:before { border: none !important; }
+}
+
+@include media($mediumScreen) {
+  .id-card {
+    max-width: 100%;
+
+    div {
+      float: left;
+      margin-left: 2.762430939%;
+
+      &:first-child { margin-left: 0; }
+    }
+  }
+}
+
+@include media($smallerScreen) {
+  .id-card {
+
+    figure {
+      text-align: center;
+      figcaption { text-align: center; }
+    }
+  }
+}

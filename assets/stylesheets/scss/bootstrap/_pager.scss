@@ -1,0 +1,25 @@
+/* ==============================================================================
+   Pager
+ * =========================================================================== */
+
+.pager {
+  @include clearfix();
+  list-style: none;
+  margin-bottom: $baseLineHeight;
+  margin-left: 0;
+  text-align: center;
+
+  li { display: inline; }
+
+  a { @extend .btn; }
+
+  .next a     { float: right; }
+  .previous a { float: left; }
+
+  .disabled a,
+  .disabled a:hover {
+    background-color: #fff;
+    color: $grayLight;
+    cursor: default;
+  }
+}

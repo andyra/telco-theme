@@ -1,0 +1,73 @@
+
+/* ==============================================================================
+ * Grid Mixins
+ * =========================================================================== */
+
+/* Responsive grids
+-------------------------------------------------- */
+
+// Breakpoints for general screen sizes
+$largeScreen:         new-breakpoint(max-width $largeScreenSize);
+$mediumScreen:        new-breakpoint(max-width $mediumScreenSize);
+$smallScreen:         new-breakpoint(max-width $smallScreenSize);
+$smallerScreen:       new-breakpoint(max-width $smallerScreenSize);
+$smallestScreen:      new-breakpoint(max-width $smallestScreenSize);
+
+// Breakpoints for specific screen sizes
+$mediumScreenOnly:    new-breakpoint(min-width ($smallScreenSize    + 1px) max-width $mediumScreenSize,  4);
+$smallScreenOnly:     new-breakpoint(min-width ($smallerScreenSize  + 1px) max-width $smallScreenSize,   3);
+$smallerScreenOnly:   new-breakpoint(min-width ($smallestScreenSize + 1px) max-width $smallerScreenSize, 2);
+$smallestScreenOnly:  new-breakpoint(min-width (0)                         max-width $smallerScreenSize, 2);
+
+/* Responsive helper labels
+ * Displays a tag to easily distinguish which breakpoint the window is in
+ * Comment out 'display: none' to view
+-------------------------------------------------- */
+
+@mixin responsiveTags($active: false) {
+  @if $active == true {
+
+    &:before {
+      @include border-radius(0 0 0 5px);
+      @include box-shadow(inset 0 0 4px rgba(0,0,0,.65));
+      @include opacity(65);
+      color: $white;
+      display: inline-block;
+      font-size: $baseFontSize;
+      line-height: $headerHeight;
+      padding: 0 20px;
+      position: fixed;
+      right: 0;
+      top: $headerHeight;
+      text-shadow: 0 -1px rgba(0,0,0,.35);
+      z-index: 9000;
+
+      @include media($largeScreen) {
+        content: "large 769px ➡ 960px";
+        background: goldenrod;
+      }
+
+      @include media($mediumScreen) {
+        content: "medium 641px ➡ 768px";
+        background: olivedrab;
+      }
+
+      @include media($smallScreen) {
+        content: "small 481px ➡ 640px";
+        background: lightseagreen;
+      }
+
+      @include media($smallerScreen) {
+        content: "smaller 321px ➡ 480px";
+        background: dodgerblue;
+      }
+
+      @include media($smallestScreen) {
+        content: "smallest 0px ➡ 320px";
+        background: blueviolet;
+      }
+    }
+
+  }
+}
+

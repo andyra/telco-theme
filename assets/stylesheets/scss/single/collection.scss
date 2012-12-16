@@ -1,0 +1,278 @@
+
+/* ==============================================================================
+ * Single Collection
+ * =========================================================================== */
+
+.single-collection {
+  @include row;
+
+  .main  { @include span-columns(8); }
+  .aside { @include span-columns(4); }
+}
+
+.album-art {
+  @include border-radius(3px 3px 4px 4px);
+  @include box-shadow( 1px 1px 3px rgba(0,0,0,0.25) );
+  padding: 4px;
+
+  img { @include border-radius(3px 3px 0 0); }
+}
+
+.description {
+  color: $gray;
+  margin: $baseLineHeight 0;
+}
+
+.distribute {
+  @include border-radius(0 0 3px 3px);
+  @include box-sizing(border-box);
+  @include box-shadow( inset 0 1px 3px rgba(0,0,0,0.5) );
+  border: none;
+  color: $white;
+  font-size: $baseFontSize + 2px;
+  line-height: $baseLineHeight * 2;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+  width: 100%;
+
+  span { @include opacity(65); }
+
+  &.mail {
+    background: url(../images/distribute-mail.png) no-repeat 0 -56px,
+                url(../images/grain-light.png) repeat;
+    background-color: $grayDark;
+  }
+
+  &.download {
+    background: url(../images/distribute-download.png) no-repeat 0 -56px,
+                url(../images/grain-light.png) repeat;
+    background-color: $grayDark;
+  }
+
+  &:hover {
+    background-color: $aqua;
+    background-position: 0 0;
+    color: $white;
+  }
+}
+
+.tracklist {
+  clear:both;
+  @include clearfix;
+  margin-bottom: $baseLineHeight * 2;
+
+  li {
+    line-height: $baseLineHeight * 1.5;
+    padding-right: 10px;
+  }
+
+  li.playing,
+  li.playing:before {
+    background-color: $highlighter;
+  }
+
+  li.playing:before {
+    content: '♬';
+  }
+
+  a { color: $redDark;
+    &:hover { color: $red;}
+  }
+
+  .duration {
+    color: $grayLight;
+    float: right;
+  }
+
+  .download-all {
+    padding: 0;
+    text-align: right;
+
+    // Remove the list striping if there is any
+    &:nth-child(odd),
+    &:before {
+      background: none;
+      content: '';
+    }
+
+    a {
+      @include border-radius(3px);
+      @include box-shadow(2px 2px 0px $grayLight);
+      @include box-sizing(border-box);
+      background: $highlighter;
+      color: $red;
+      display: inline-block;
+      line-height: $baseLineHeight * 1.5;
+      margin-top: 5px;
+      padding: 0 10px;
+      text-shadow: 0 1px 0 rgba(255,255,255,1);
+
+      &:hover {
+        @include box-shadow(2px 2px 0px $redDark);
+        background: $red;
+        color: $redDark;
+        text-shadow: 0 1px 0 rgba(255,255,255,.25);
+      }
+
+    }
+
+    &.disabled a,
+    &.disabled a:hover {
+      background: $grayLightest;
+      color: $grayLight;
+      text-decoration: line-through;
+      text-shadow: none;
+    }
+  }
+}
+
+.bleed {
+  color: $grayLight;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.certificate {
+  @include box-shadow( 1px 1px 3px rgba(0,0,0,0.25) );
+  @include box-sizing(border-box);
+  background: url(../images/certificate-bg.png) repeat,
+              url(../images/certificate-seal.png) no-repeat 98% 3%;
+  background-color: $paper;
+  border: 10px solid $paper;
+  max-width: 620px;
+  padding: 20px;
+
+  h3, .row-fluid { background: url(../images/hr-black.png) repeat-x bottom; }
+
+  .row-fluid { padding: $baseLineHeight / 2 0; }
+
+  h3 {
+    padding-bottom: $baseLineHeight;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  dl { margin: 0; }
+
+  dd {
+    font-family: $altFontFamily;
+    margin: 0;
+  }
+}
+
+.request {
+  background: url(../images/hr-black.png) repeat-x;
+  display: none;
+  margin: ($baseLineHeight * 2) 0;
+  padding-top: $baseLineHeight * 2;
+}
+
+.request .letter {
+  margin: 0 auto;
+  max-width: 740px;
+  width: auto;
+
+  form { margin: 0; }
+
+  ul {
+    list-style: none;
+    margin: $baseLineHeight 0 0;
+  }
+
+  .gform_wrapper {
+    margin: 0 !important;
+    max-width: 100%;
+  }
+
+  .gform_body {
+
+    input {
+      font-family: $altFontFamily;
+    }
+
+    label {
+      font-size: $baseFontSize;
+      font-weight: normal;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    // Hide the "Address" label
+    #field_1_2 > label { display: none; }
+
+    input {
+      background: $grayWash;
+      border: none;
+      width: 100%;
+    }
+
+    select {
+      width: 100%;
+    }
+
+    li,
+    span {
+      @include clearfix();
+      display: block;
+    }
+
+    .ginput_container {
+      width: 100%;
+    }
+  }
+
+  input.button {
+    @extend .btn;
+    background: $aqua url(../images/grain-light.png) repeat;
+    border-color: darken($aqua, 10%);
+    color: $white;
+    line-height: $baseLineHeight * 2;
+    font-size: $baseFontSize + 4px !important;
+    margin-top: $baseLineHeight;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    width: 100%;
+
+    &:hover {
+      background-color: $red;
+      border-color: $redDark;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.25);
+    }
+  }
+
+  .gform_footer {
+    border-top: 1px dashed $grayLightest;
+    padding: 0;
+  }
+}
+
+@include media($mediumScreen) {
+  .certificate { max-width: 100%; }
+  .album-art {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@include media($smallerScreen) {
+  .download-all a {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* Dark Theme
+-------------------------------------------------- */
+
+body.dark-theme {
+  h1, p,
+  li, .duration {
+    color: $grayLightest;
+  }
+
+  .tracklist a { color: $aquaLight;
+    &:hover { color: $white; }
+  }
+
+  .download-all a { color: $red;
+  }
+}

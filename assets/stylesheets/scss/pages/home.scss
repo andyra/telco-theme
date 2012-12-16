@@ -1,0 +1,97 @@
+
+/* ==============================================================================
+ * Home Page
+ * =========================================================================== */
+
+.message {
+  // @include span-columns(6);
+
+  p:last-child {
+    background: url(../images/signature.png) no-repeat 150px 0;
+    padding-bottom: 40px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+aside {
+  @include span-columns(4);
+
+  section { margin-bottom: $baseLineHeight * 1.5; }
+}
+
+.home h3 { margin-bottom: $baseLineHeight / 2; }
+
+// This Evening's Show Link
+.home .tes {
+  a {
+    @include border-radius();
+    background-image: url(../images/pattern-hatching-blue.png);
+    background-repeat: repeat;
+    display: block;
+    text-align: center;
+    padding: $baseLineHeight;
+
+    &:hover {
+      background-color: $highlighter;
+    }
+  }
+}
+
+// Recent Collections
+.recent {
+  li {
+    @include clearfix();
+    border-bottom: 1px solid $grayLightest;
+    padding: 5px 0;
+
+    span {
+      color: $grayLight;
+      display: block;
+      font-size: $baseFontSize - 2px;
+    }
+
+    &:last-child { border-bottom: none; }
+  }
+
+  em { font-size: $baseFontSize + 2px; }
+  div { float: left; }
+
+  img {
+    @include opacity(75);
+    @include transition();
+    float: left;
+    margin-right: 10px;
+    max-width: $baseLineHeight * 2;
+  }
+
+  a:hover {
+    color: $red;
+
+    img { @include opacity(100); }
+  }
+}
+
+.signature { margin-top: $baseLineHeight; }
+
+// Sponsors
+.sponsor a {
+  @include box-sizing(border-box);
+  @include opacity(85);
+  @include transition();
+  background: $paper;
+  border: 2px dashed $grayLightest;
+  display: block;
+  padding: 10px;
+
+  &:hover {
+    @include opacity(100);
+  }
+}
