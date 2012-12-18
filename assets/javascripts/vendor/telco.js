@@ -11,5 +11,5 @@
 // @codekit-prepend 'jquery.fancybox.js'
 // @codekit-prepend 'jquery.fitvids.js'
 // @codekit-prepend 'jquery.tablesorter.js'
-// @codekit-prepend 'quantize.js'
+// @codekit-prepend 'color-tunes.js'
 // @codekit-prepend 'application.js'

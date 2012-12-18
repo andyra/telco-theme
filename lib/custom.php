@@ -264,9 +264,14 @@ function telco_page_theme() {
   $custom_background = get_field('custom_background');
 
   // Colors
-  if ($color_theme == 'custom') :
-    // get custom colors
-  else :
+  if ($color_theme == 'custom') : ?>
+    <style>
+      body { background-color: maroon !important; }
+      .tracklist li { color: tomato !important; }
+      .tracklist li:before,
+      .bleed { color: cyan !important; }
+    </style>
+  <?php else :
     // autocolor the page
   endif;
 

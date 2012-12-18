@@ -15,8 +15,8 @@ function telco_scripts() {
   }
 
   // Compiled scripts
-  // wp_register_script('telco_compiled_scripts', get_template_directory_uri() . '/assets/javascripts/telco.min.js', 'jquery', '00002', false);
-  // wp_enqueue_script('telco_compiled_scripts');
+  wp_register_script('telco_compiled_scripts', get_template_directory_uri() . '/assets/javascripts/telco.min.js', 'jquery', '00002', false);
+  wp_enqueue_script('telco_compiled_scripts');
 
   // ColorTunes
   wp_register_script('telco_colortunes', get_template_directory_uri() . '/assets/javascripts/vendor/color-tunes.js', 'jquery', '00002', false);
