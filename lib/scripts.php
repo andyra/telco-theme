@@ -18,10 +18,6 @@ function telco_scripts() {
   wp_register_script('telco_compiled_scripts', get_template_directory_uri() . '/assets/javascripts/telco.min.js', 'jquery', '00002', false);
   wp_enqueue_script('telco_compiled_scripts');
 
-  // ColorTunes
-  // wp_register_script('telco_colortunes', get_template_directory_uri() . '/assets/javascripts/vendor/color-tunes.js', 'jquery', '00002', false);
-  // wp_enqueue_script('telco_colortunes');
-
   // Setlist Computer styles and tools
   if( is_page('Setlist Computer') ) {
     wp_register_script('telco_range_input', 'http://cdn.jquerytools.org/1.2.7/form/jquery.tools.min.js', 'jquery', null, false);

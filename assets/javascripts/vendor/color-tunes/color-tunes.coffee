@@ -54,6 +54,7 @@ class ColorTunes
         "rgba(#{color[0]}, #{color[1]}, #{color[2]}, 1)"
 
       # Theme page elements
+      $('html').removeClass('ct-loading').addClass('ct-active')
       $("body").css "background-color", "#{rgbToCssString bgColor}"
       $("ol li").css "color", "#{rgbToCssString fgColor2}"
       $("h2").css "color", "#{rgbToCssString fgColor}"
@@ -66,3 +67,4 @@ $(document).ready ->
   src = $(".album-art img").attr('src')
   image.src = src
   ColorTunes.launch image, canvas
+  $('html').addClass('ct-loading')

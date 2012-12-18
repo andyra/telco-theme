@@ -45,17 +45,21 @@ body {
 * Adds a spinner + fade in while the font is loading
 -------------------------------------------------- */
 
-.wf-loading {
+.wf-loading,
+.ct-loading {
   height: 100%;
   overflow: hidden;
   background: $white url(../images/preloader.gif) center center no-repeat fixed;
 }
 
 .wf-active body,
-.wf-inactive body {
+.wf-inactive body,
+.ct-active body,
+.ct-inactive body {
   @include transition(.15s ease-out all);
 }
 
-.wf-loading * {
+.wf-loading *,
+.ct-loading *, {
   @include opacity(0);
 }

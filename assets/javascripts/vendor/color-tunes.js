@@ -525,6 +525,7 @@
         rgbToCssString = function(color) {
           return "rgba(" + color[0] + ", " + color[1] + ", " + color[2] + ", 1)";
         };
+        $('html').removeClass('ct-loading').addClass('ct-active');
         $("body").css("background-color", "" + (rgbToCssString(bgColor)));
         $("ol li").css("color", "" + (rgbToCssString(fgColor2)));
         return $("h2").css("color", "" + (rgbToCssString(fgColor)));
@@ -542,7 +543,8 @@
     image = new Image;
     src = $(".album-art img").attr('src');
     image.src = src;
-    return ColorTunes.launch(image, canvas);
+    ColorTunes.launch(image, canvas);
+    return $('html').addClass('ct-loading');
   });
 
 }).call(this);
