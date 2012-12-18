@@ -53,14 +53,16 @@ class ColorTunes
       rgbToCssString = (color) ->
         "rgba(#{color[0]}, #{color[1]}, #{color[2]}, 1)"
 
+      # Theme page elements
       $("body").css "background-color", "#{rgbToCssString bgColor}"
       $("ol li").css "color", "#{rgbToCssString fgColor2}"
       $("h2").css "color", "#{rgbToCssString fgColor}"
 
+# When document loads, send the image src to the canvas
 $(document).ready ->
   coverAnchor = @
-  canvas = document.getElementById "album-artwork"
+  canvas = $('#album-artwork')
   image = new Image
-  src = $(".cover-picker img").attr('src')
+  src = $(".album-art img").attr('src')
   image.src = src
   ColorTunes.launch image, canvas

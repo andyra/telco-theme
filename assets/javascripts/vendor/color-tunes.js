@@ -538,9 +538,9 @@
   $(document).ready(function() {
     var canvas, coverAnchor, image, src;
     coverAnchor = this;
-    canvas = document.getElementById("album-artwork");
+    canvas = $('#album-artwork');
     image = new Image;
-    src = $(".cover-picker img").attr('src');
+    src = $(".album-art img").attr('src');
     image.src = src;
     return ColorTunes.launch(image, canvas);
   });

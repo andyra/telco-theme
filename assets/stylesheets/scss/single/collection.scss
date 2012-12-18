@@ -16,6 +16,9 @@
   padding: 4px;
 
   img { @include border-radius(3px 3px 0 0); }
+
+  // hide the canvas, which is used for auto coloring
+  canvas { display: none; }
 }
 
 .description {

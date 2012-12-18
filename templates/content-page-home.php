@@ -1,6 +1,5 @@
 <?php while (have_posts()) : the_post(); ?>
 
-
   <section class="color-tunes">
     <div class="cover-picker">
       <figure>
