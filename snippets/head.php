@@ -11,18 +11,20 @@
   <title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
   <script src="<?php echo get_template_directory_uri(); ?>/assets/javascripts/modernizr-2.6.2.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="<?php echo get_template_directory_uri(); ?>/assets/javascripts/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+
   <script type="text/javascript">
-  WebFontConfig = {
-    google: { families: [ 'Libre+Baskerville:400italic:latin', 'Cousine:400,700:latin' ] }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })(); </script>
+    WebFontConfig = { google: { families: [ 'Libre+Baskerville:400italic:latin', 'Cousine:400,700:latin' ] } };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
+
   <?php wp_head(); ?>
 </head>
