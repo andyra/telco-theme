@@ -1,17 +1,17 @@
 
 /* Imports
 --------------------------------------------------  */
-// @codekit-prepend '_bootstrap.button.js';
-// @codekit-prepend '_bootstrap.collapse.js';
-// @codekit-prepend '_bootstrap.dropdown.js';
-// @codekit-prepend '_bootstrap.transition.js';
-// @codekit-prepend '_bootstrap.modal.js';
-// @codekit-prepend '_bootstrap.tabs.js';
-// @codekit-prepend '_jquery.audio.js';
-// @codekit-prepend '_jquery.metadata.js';
-// @codekit-prepend '_jquery.ytplayer.js';
-// @codekit-prepend '_jquery.fancybox.js';
-// @codekit-prepend '_jquery.fitvids.js';
-// @codekit-prepend '_jquery.tablesorter.js';
-// @codekit-prepend '_application.js';
-// @codekit-prepend '_color-tunes.js';
+// @codekit-prepend 'bootstrap.button.js';
+// @codekit-prepend 'bootstrap.collapse.js';
+// @codekit-prepend 'bootstrap.dropdown.js';
+// @codekit-prepend 'bootstrap.transition.js';
+// @codekit-prepend 'bootstrap.modal.js';
+// @codekit-prepend 'bootstrap.tabs.js';
+// @codekit-prepend 'jquery.audio.js';
+// @codekit-prepend 'jquery.metadata.js';
+// @codekit-prepend 'jquery.ytplayer.js';
+// @codekit-prepend 'jquery.fancybox.js';
+// @codekit-prepend 'jquery.fitvids.js';
+// @codekit-prepend 'jquery.tablesorter.js';
+// @codekit-prepend 'color-tunes.js';
+// @codekit-prepend 'application.js';
