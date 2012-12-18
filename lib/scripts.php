@@ -19,8 +19,8 @@ function telco_scripts() {
   wp_enqueue_script('telco_compiled_scripts');
 
   // ColorTunes
-  wp_register_script('telco_colortunes', get_template_directory_uri() . '/assets/javascripts/vendor/color-tunes.js', 'jquery', '00002', false);
-  wp_enqueue_script('telco_colortunes');
+  // wp_register_script('telco_colortunes', get_template_directory_uri() . '/assets/javascripts/vendor/color-tunes.js', 'jquery', '00002', false);
+  // wp_enqueue_script('telco_colortunes');
 
   // Setlist Computer styles and tools
   if( is_page('Setlist Computer') ) {
