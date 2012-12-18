@@ -254,6 +254,16 @@ function telco_get_collection_info($post) {
   return $collection;
 }
 
+/* Page Theme
+-------------------------------------------------- */
+
+function telco_page_theme() {
+  $color = get_field('color');
+  $custom_colors = get_field('custom_colors');
+  $background = get_field('background');
+  $custom_background = get_field('custom_background');
+}
+
 /* Page Style: background image
 -------------------------------------------------- */
 
