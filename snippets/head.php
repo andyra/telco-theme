@@ -9,7 +9,7 @@
   <meta name="description" content="An enchiridion of music, theater, video, &ct. by NW and the Wonderful Land Wonderful Band. Home of This Evening Show.">
   <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo home_url(); ?>/feed/">
   <title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
-  <script src="<?php echo get_template_directory_uri(); ?>/assets/javascripts/modernizr-2.6.2.min.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/assets/javascripts/vendors/modernizr-2.6.2.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="<?php echo get_template_directory_uri(); ?>/assets/javascripts/vendor/jquery-1.8.3.min.js"><\/script>')</script>
 
