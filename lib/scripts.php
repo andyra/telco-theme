@@ -36,7 +36,7 @@ function telco_scripts() {
 
   // Compiled scripts
   wp_register_script('telco_compiled_scripts', get_template_directory_uri() . '/assets/javascripts/scripts.min.js', 'jquery', '00002', false);
-  // wp_enqueue_script('telco_compiled_scripts');
+  wp_enqueue_script('telco_compiled_scripts');
 
 }
 add_action('wp_enqueue_scripts', 'telco_scripts', 100);
