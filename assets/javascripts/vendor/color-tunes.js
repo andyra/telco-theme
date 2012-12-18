@@ -539,15 +539,13 @@
   })();
 
   $(document).ready(function() {
-    return $(".cover-picker").on("click", function(event) {
-      var canvas, coverAnchor, image, src;
-      coverAnchor = this;
-      canvas = document.getElementById("album-artwork");
-      image = new Image;
-      src = $(".cover-picker img").attr('src');
-      image.src = src;
-      return ColorTunes.launch(image, canvas);
-    });
+    var canvas, coverAnchor, image, src;
+    coverAnchor = this;
+    canvas = document.getElementById("album-artwork");
+    image = new Image;
+    src = $(".cover-picker img").attr('src');
+    image.src = src;
+    return ColorTunes.launch(image, canvas);
   });
 
 }).call(this);

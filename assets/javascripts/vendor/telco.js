@@ -1,6 +1,4 @@
 
-/* Imports
---------------------------------------------------  */
 // @codekit-prepend 'bootstrap.button.js';
 // @codekit-prepend 'bootstrap.collapse.js';
 // @codekit-prepend 'bootstrap.dropdown.js';
