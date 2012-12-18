@@ -4,6 +4,7 @@
 -------------------------------------------------- */
 
 function telco_scripts() {
+
   //  Styles
   wp_enqueue_style('telco_style', get_template_directory_uri() . '/assets/stylesheets/telco.min.css', false, '0020', null);
 
@@ -13,10 +14,9 @@ function telco_scripts() {
     wp_register_script('jquery', '', '', '', false);
   }
 
-  // Comments
-  if( is_single() && comments_open() && get_option('thread_comments') ) {
-    wp_enqueue_script('comment-reply');
-  }
+  // Compiled scripts
+  wp_register_script('telco_compiled_scripts', get_template_directory_uri() . '/assets/javascripts/telco.min.js', 'jquery', '00002', false);
+  wp_enqueue_script('telco_compiled_scripts');
 
   // Setlist Computer styles and tools
   if( is_page('Setlist Computer') ) {
@@ -24,9 +24,10 @@ function telco_scripts() {
     wp_enqueue_script('telco_range_input');
   }
 
-  // Compiled scripts
-  wp_register_script('telco_compiled_scripts', get_template_directory_uri() . '/assets/javascripts/scripts.min.js', 'jquery', '00002', false);
-  wp_enqueue_script('telco_compiled_scripts');
+  // Comments
+  if( is_single() && comments_open() && get_option('thread_comments') ) {
+    wp_enqueue_script('comment-reply');
+  }
 
 }
 add_action('wp_enqueue_scripts', 'telco_scripts', 100);
