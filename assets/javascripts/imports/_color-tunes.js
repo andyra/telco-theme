@@ -538,12 +538,6 @@
 
   })();
 
-  /* --------------------------------------------
-       Begin application.coffee
-  --------------------------------------------
-  */
-
-
   $(document).ready(function() {
     return $(".cover-picker").on("click", function(event) {
       var canvas, coverAnchor, image, src;

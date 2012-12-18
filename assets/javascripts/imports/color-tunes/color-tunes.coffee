@@ -1,3 +1,5 @@
+# @codekit-prepend "quantize.coffee"
+
 # color-tunes.coffee, Copyright 2012 Shao-Chung Chen.
 # Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
 
@@ -58,3 +60,12 @@ class ColorTunes
       $('.palette li:eq(0) .swatch').css "background-color", "#{rgbToCssString bgColor}"
       $('.palette li:eq(1) .swatch').css 'background-color', "#{rgbToCssString fgColor}"
       $('.palette li:eq(2) .swatch').css "background-color", "#{rgbToCssString fgColor2}"
+
+$(document).ready ->
+  $(".cover-picker").on "click", (event) ->
+    coverAnchor = @
+    canvas = document.getElementById "album-artwork"
+    image = new Image
+    src = $(".cover-picker img").attr('src')
+    image.src = src
+    ColorTunes.launch image, canvas
