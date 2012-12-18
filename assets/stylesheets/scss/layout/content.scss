@@ -23,7 +23,6 @@ body {
 
 .wrap {
   @include outer-container;
-  background: $white;
 
   @include media($largeScreen)  { width: $mediumScreenSize - ($largeScreenPadding * 2); }
   @include media($mediumScreen) { width: 100%;  }

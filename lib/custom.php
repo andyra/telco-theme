@@ -262,6 +262,10 @@ function telco_page_theme() {
   $custom_colors = get_field('custom_colors');
   $background = get_field('background');
   $custom_background = get_field('custom_background');
+
+  echo '<pre>';
+    print_r( $color );
+  echo '</pre>';
 }
 
 /* Page Style: background image

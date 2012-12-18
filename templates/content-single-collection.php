@@ -50,10 +50,9 @@
 
     <aside>
       <figure class="album-art">
-        <a class="fancybox" href="<?php echo $collection['album_art']['full']; ?>">
-          <img src="<?php echo $collection['album_art']['medium']; ?>" alt="">
-        </a>
+        <img src="<?php echo $collection['album_art']['medium']; ?>" alt="">
       </figure>
+      <a class="btn btn-large" href="#">Download Album</a>
     </aside>
 
 <?php endwhile; ?>

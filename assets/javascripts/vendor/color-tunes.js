@@ -525,12 +525,9 @@
         rgbToCssString = function(color) {
           return "rgba(" + color[0] + ", " + color[1] + ", " + color[2] + ", 1)";
         };
-        $("body, .wrap").css("background-color", "" + (rgbToCssString(bgColor)));
+        $("body").css("background-color", "" + (rgbToCssString(bgColor)));
         $("ol li").css("color", "" + (rgbToCssString(fgColor2)));
-        $("h2").css("color", "" + (rgbToCssString(fgColor)));
-        $('.palette li:eq(0) .swatch').css("background-color", "" + (rgbToCssString(bgColor)));
-        $('.palette li:eq(1) .swatch').css('background-color', "" + (rgbToCssString(fgColor)));
-        return $('.palette li:eq(2) .swatch').css("background-color", "" + (rgbToCssString(fgColor2)));
+        return $("h2").css("color", "" + (rgbToCssString(fgColor)));
       });
     };
 

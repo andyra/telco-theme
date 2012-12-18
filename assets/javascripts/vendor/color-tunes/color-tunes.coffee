@@ -53,19 +53,14 @@ class ColorTunes
       rgbToCssString = (color) ->
         "rgba(#{color[0]}, #{color[1]}, #{color[2]}, 1)"
 
-      $("body, .wrap").css "background-color", "#{rgbToCssString bgColor}"
+      $("body").css "background-color", "#{rgbToCssString bgColor}"
       $("ol li").css "color", "#{rgbToCssString fgColor2}"
       $("h2").css "color", "#{rgbToCssString fgColor}"
 
-      $('.palette li:eq(0) .swatch').css "background-color", "#{rgbToCssString bgColor}"
-      $('.palette li:eq(1) .swatch').css 'background-color', "#{rgbToCssString fgColor}"
-      $('.palette li:eq(2) .swatch').css "background-color", "#{rgbToCssString fgColor2}"
-
 $(document).ready ->
-  $(".cover-picker").on "click", (event) ->
-    coverAnchor = @
-    canvas = document.getElementById "album-artwork"
-    image = new Image
-    src = $(".cover-picker img").attr('src')
-    image.src = src
-    ColorTunes.launch image, canvas
+  coverAnchor = @
+  canvas = document.getElementById "album-artwork"
+  image = new Image
+  src = $(".cover-picker img").attr('src')
+  image.src = src
+  ColorTunes.launch image, canvas
