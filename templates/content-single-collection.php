@@ -51,7 +51,7 @@
     <aside>
       <figure class="album-art">
         <img src="<?php echo $collection['album_art']['medium']; ?>" alt="">
-        <canvas id="album-artwork"></canvas>
+        <canvas id="album-artwork" width="300" height="450"></canvas>
       </figure>
       <a class="btn btn-large" href="#">Download Album</a>
     </aside>

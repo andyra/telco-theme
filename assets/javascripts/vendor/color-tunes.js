@@ -538,7 +538,7 @@
   $(document).ready(function() {
     var canvas, coverAnchor, image, src;
     coverAnchor = this;
-    canvas = $('#album-artwork');
+    canvas = document.getElementById("album-artwork");
     image = new Image;
     src = $(".album-art img").attr('src');
     image.src = src;

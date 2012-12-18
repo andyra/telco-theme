@@ -258,69 +258,26 @@ function telco_get_collection_info($post) {
 -------------------------------------------------- */
 
 function telco_page_theme() {
-  $color = get_field('color');
+  $color_theme = get_field('color');
   $custom_colors = get_field('custom_colors');
   $background = get_field('background');
   $custom_background = get_field('custom_background');
 
-  echo '<pre>';
-    print_r( $color );
-  echo '</pre>';
+  // Colors
+  if ($color_theme == 'custom') :
+    // get custom colors
+  else :
+    // autocolor the page
+  endif;
+
+  // Background theme
+  if ($background == 'image') :
+    // get image and set css
+  else :
+    // do nothing
+  endif;
 }
-
-/* Page Style: background image
--------------------------------------------------- */
-
-function telco_page_style() {
-  $background = get_field('background');
-  $background = $background[0];
-  $image = $background['image'];
-  $opacity = $background['opacity'];
-  $position = $background['position'];
-
-  if( !$opacity ) { $opacity == 1; }
-
-  if( is_singular('collection') && $image ) { ?>
-  <style type="text/css">
-    #container:after {
-      content: "";
-      background: url('<?php echo $image; ?>');
-      background-attachment: fixed;
-      background-repeat: repeat;
-      opacity: <?php echo $opacity; ?>;
-      filter: alpha( opacity=<?php echo $opacity * 100; ?>);
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      position: fixed;
-      z-index: -1;
-      <?php if( $position == 'cover' ) echo 'background-size: cover;'; ?>
-      <?php if( $position == 'contain' ) echo 'background-size: contain;'; ?>
-    }
-  </style>
-  <?php }
-}
-add_filter('wp_head','telco_page_style');
-
-/* Body classes
--------------------------------------------------- */
-
-function telco_body_classes($classes) {
-
-  // Page style: text color
-  if( get_field('text_color') == 'light' ) {
-    $classes[] = "dark-theme";
-  }
-
-  // Add post/page slug
-  if(is_single() || is_page() && !is_front_page() ) {
-    $classes[] = basename( get_permalink() );
-  }
-
-  return $classes;
-}
-add_filter('body_class','telco_body_classes');
+add_filter('wp_head','telco_page_theme');
 
 /* Get Movie Info
 -------------------------------------------------- */

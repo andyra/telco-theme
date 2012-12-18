@@ -61,7 +61,7 @@ class ColorTunes
 # When document loads, send the image src to the canvas
 $(document).ready ->
   coverAnchor = @
-  canvas = $('#album-artwork')
+  canvas = document.getElementById "album-artwork"
   image = new Image
   src = $(".album-art img").attr('src')
   image.src = src
