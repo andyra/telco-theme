@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function($) {
 
   // T.E.S. video background

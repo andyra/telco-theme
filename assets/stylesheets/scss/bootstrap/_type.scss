@@ -34,7 +34,7 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   color: $grayDark;
-  font-weight: normal;
+  font-weight: bold;
   margin: 0;
   text-rendering: optimizelegibility; // Fix the character spacing for headings
 }
@@ -126,7 +126,7 @@ ol,
 
     &:before {
       @include box-sizing(border-box);
-      color: $grayLight;
+      // color: $grayLight;
       content: counter(li)'.'; // Use the counter as content
       counter-increment: li; // Increment the counter by 1
       display: inline-block;
