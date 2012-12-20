@@ -475,7 +475,10 @@
       return square(a[0] - b[0]) + square(a[1] - b[1]) + square(a[2] - b[2]);
     };
 
-    ColorTunes.launch = function(image, canvas) {
+    ColorTunes.launch = function(image) {
+
+      var canvas = document.createElement('canvas');
+
       return $(image).on("load", function() {
         var accentColor, backgroundColor, bgColor, bgColorMap, bgPalette, color, dist, fgColor, fgColor2, fgColorMap, fgPalette, foregroundColor, maxDist, rgbToCssString, _i, _j, _len, _len1;
         image.height = Math.round(image.height * (300 / image.width));
@@ -580,14 +583,9 @@
 
   // Get the image to match the colors to
   $(document).ready(function() {
-    var canvas, coverAnchor, image;
-
-    coverAnchor = this;
-    canvas = document.getElementById("album-artwork");
-    image = new Image;
+    var image = new Image;
     image.src = $(".album-art img").attr('src');
-
-    return ColorTunes.launch(image, canvas);
+    ColorTunes.launch(image);
   });
 
 }).call(this);
