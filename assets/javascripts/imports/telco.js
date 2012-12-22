@@ -1,8 +1,8 @@
 
+// @codekit-prepend 'vendor/bootstrap.transition.js'
 // @codekit-prepend 'vendor/bootstrap.button.js'
 // @codekit-prepend 'vendor/bootstrap.collapse.js'
 // @codekit-prepend 'vendor/bootstrap.dropdown.js'
-// @codekit-prepend 'vendor/bootstrap.transition.js'
 // @codekit-prepend 'vendor/bootstrap.modal.js'
 // @codekit-prepend 'vendor/bootstrap.tabs.js'
 // @codekit-prepend 'vendor/jquery.metadata.js'
