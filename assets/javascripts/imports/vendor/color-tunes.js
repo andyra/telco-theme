@@ -344,7 +344,7 @@
             }
             cbox1[dim2] = d2;
             cbox2[dim1] = cbox1[dim2] + 1;
-            console.log("cbox counts: " + (cbox.count()) + ", " + (cbox1.count()) + ", " + (cbox2.count()));
+            // console.log("cbox counts: " + (cbox.count()) + ", " + (cbox1.count()) + ", " + (cbox2.count()));
             return [cbox1, cbox2];
           }
         }
@@ -480,7 +480,7 @@
       var canvas = document.createElement('canvas');
 
       return $(image).on("load", function() {
-        var accentColor, backgroundColor, bgColor, bgColorMap, bgPalette, color, dist, fgColor, fgColor2, fgColorMap, fgPalette, foregroundColor, maxDist, rgbToCssString, _i, _j, _len, _len1;
+        var backgroundColor, bgColorMap, bgPalette, color, dist, foregroundColor, accentColor, fgColorMap, fgPalette, maxDist, rgbToCssString, _i, _j, _len, _len1;
         image.height = Math.round(image.height * (300 / image.width));
         image.width = 300;
         canvas.width = image.width;
@@ -496,7 +496,7 @@
         bgPalette.sort(function(a, b) {
           return b.count - a.count;
         });
-        bgColor = bgPalette[0].rgb;
+        backgroundColor = bgPalette[0].rgb;
         fgColorMap = ColorTunes.getColorMap(canvas, 0, 0, image.width, image.height, 10);
         fgPalette = fgColorMap.cboxes.map(function(cbox) {
           return {
@@ -510,36 +510,36 @@
         maxDist = 0;
         for (_i = 0, _len = fgPalette.length; _i < _len; _i++) {
           color = fgPalette[_i];
-          dist = ColorTunes.colorDist(bgColor, color.rgb);
+          dist = ColorTunes.colorDist(backgroundColor, color.rgb);
           if (dist > maxDist) {
             maxDist = dist;
-            fgColor = color.rgb;
+            foregroundColor = color.rgb;
           }
         }
         maxDist = 0;
         for (_j = 0, _len1 = fgPalette.length; _j < _len1; _j++) {
           color = fgPalette[_j];
-          dist = ColorTunes.colorDist(bgColor, color.rgb);
-          if (dist > maxDist && color.rgb !== fgColor) {
+          dist = ColorTunes.colorDist(backgroundColor, color.rgb);
+          if (dist > maxDist && color.rgb !== foregroundColor) {
             maxDist = dist;
-            fgColor2 = color.rgb;
+            accentColor = color.rgb;
           }
         }
 
-        rgbToCssString = function(color) {
-          return "rgba(" + color[0] + ", " + color[1] + ", " + color[2] + ", 1)";
+        rgbToCssString = function(color, opacity) {
+          return "rgba(" + color[0] + ", " + color[1] + ", " + color[2] + "," + opacity + ")";
         };
 
         // Check the contrast between foreground and background
-        contrastBetween = function(fgColor, bgColor) {
-          var Li, L2;
+        contrastBetween = function(foregroundColor, bgColor) {
+          var Li, L2, contrast;
 
-          L1 = 0.2126 * Math.pow(fgColor[0]/255, 2.2) +
-               0.7152 * Math.pow(fgColor[1]/255, 2.2) +
-               0.0722 * Math.pow(fgColor[2]/255, 2.2);
-          L2 = 0.2126 * Math.pow(bgColor[0]/255, 2.2) +
-               0.7152 * Math.pow(bgColor[1]/255, 2.2) +
-               0.0722 * Math.pow(bgColor[2]/255, 2.2);
+          L1 = 0.2126 * Math.pow(foregroundColor[0]/255, 2.2) +
+               0.7152 * Math.pow(foregroundColor[1]/255, 2.2) +
+               0.0722 * Math.pow(foregroundColor[2]/255, 2.2);
+          L2 = 0.2126 * Math.pow(backgroundColor[0]/255, 2.2) +
+               0.7152 * Math.pow(backgroundColor[1]/255, 2.2) +
+               0.0722 * Math.pow(backgroundColor[2]/255, 2.2);
 
           if (L1 > L2) {
             return (L1 + 0.05) / (L2 + 0.05);
@@ -547,31 +547,66 @@
           return (L2 + 0.05) / (L1 + 0.05);
         }
 
-        console.log(contrastBetween(fgColor,bgColor));
-
-        defaultForegroundFor = function(color) {
+        isDark = function(color) {
           var yiq = ((color[0] * 299) +
                      (color[1] * 587) +
                      (color[2] * 114)) / 1000;
 
-          // Text should be light if the background is dark and vice-versa
-          return (yiq >= 128) ? 'dark' : 'light';
+          return (yiq <= 128) ? 'dark' : 'light;';
         }
 
-        // If the contrast is too low, switch to defaults
-        if (contrastBetween(fgColor,bgColor) < 5) {
-          fgColor = (defaultForegroundFor(bgColor) == 'dark') ? [54,58,57] : [222, 224, 223];
+        defaultColorAgainst = function(color) {
+          return (isDark(color) == 'light') ? [54,58,57] : [222, 224, 223];
         }
 
-        // Colors
-        backgroundColor = rgbToCssString(bgColor);
-        foregroundColor = rgbToCssString(fgColor);
-        accentColor = rgbToCssString(fgColor2);
+        getDefaultColors = function(colorVar) {
+          var defaultColor;
 
-        // Change colors of page elements
-        $("body").css("background-color", backgroundColor);
-        $("li, .tracklist a").css("color", foregroundColor);
-        $("h1").css("color", accentColor);
+          if (contrastBetween(colorVar, backgroundColor) < 5) {
+            defaultColor = defaultColorAgainst(backgroundColor);
+            return defaultColor;
+          }
+
+          // If there's no problem with contrast, return original value
+          return colorVar;
+        }
+
+        console.log('Background is ' + isDark(backgroundColor));
+        console.log('Foreground (' + foregroundColor + ') constrast is ' + contrastBetween(foregroundColor, backgroundColor));
+        console.log('Accent (' + accentColor + ') constrast is ' + contrastBetween(accentColor, backgroundColor));
+        console.log('-Now changing values-');
+
+        // Set default colors if there's not enough contrast
+        foregroundColor = getDefaultColors(foregroundColor);
+        accentColor = getDefaultColors(accentColor);
+
+        console.log('Now the foreground (' + foregroundColor + ') constrast is ' + contrastBetween(foregroundColor, backgroundColor));
+        console.log('Now the accent (' + accentColor + ') constrast is ' + contrastBetween(accentColor, backgroundColor));
+
+
+        // Create style rules
+        var style =
+            'body { background-color: ' + rgbToCssString(backgroundColor, 1) + '}' +
+            'h1, .tracklist li { color: ' + rgbToCssString(foregroundColor, 1) + '}' +
+            '.tracklist li:before, .tracklist .duration, .tracklist .bleed, .audiojs .title { color: ' + rgbToCssString(accentColor, 1) + '}' +
+            '.audiojs { background-color: ' + rgbToCssString(accentColor, .1) + '}' +
+            '.audiojs .played { color: ' + rgbToCssString(accentColor, .5) + '}' +
+            '.audiojs .duration { color: ' + rgbToCssString(accentColor, .75) + '}' +
+            '.audiojs .play-pause p { border-right-color: ' + rgbToCssString(accentColor, .5) + '}';
+            '.audiojs .play-pause p:hover { border-right-color: ' + rgbToCssString(accentColor, 1) + '}';
+
+        // If the background is
+        if (isDark(backgroundColor) == 'dark') {
+          style += 'h1 { text-shadow: 0 -1px 0 rgba(0,0,0,.5); }';
+        } else {
+          style += 'h1 { text-shadow: 0 1px 0 rgba(255,255,255,.5); }';
+        }
+
+        // Create style tag and insert in head
+        var styleTag = document.createElement("style");
+            styleTag.type = "text/css";
+            styleTag.innerHTML = style; // Replace with CSS code.
+        $('head').append(styleTag);
 
         return;
       });

@@ -1,5 +1,5 @@
 
-// @codekit-prepend '_jquery.select2.js';
+// @codekit-prepend 'vendor/select2.js';
 
 $(document).ready(function() {
 

@@ -68,11 +68,6 @@
     padding-right: 10px;
   }
 
-  li.playing,
-  li.playing:before {
-    background-color: $highlighter;
-  }
-
   li.playing:before {
     content: '♬';
   }

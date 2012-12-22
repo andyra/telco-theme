@@ -22,7 +22,7 @@
         }
       endforeach; ?>
 
-      <ol class="tracklist list-striped">
+      <ol class="tracklist">
       <?php foreach( $collection['tracklist'] as $track_item ) :
         $track = telco_get_track_info( $track_item['track'] );
         // $track_metadata = telco_get_track_metadata($track_item['link']); ?>

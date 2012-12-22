@@ -8,7 +8,7 @@ $playerHeight: 52px;
 .audiojs {
   @include border-radius();
   @include box-shadow(0 1px 4px rgba(black,.25));
-  background: $white;
+  background-color: $white;
   height: $playerHeight;
   margin-bottom: $baseLineHeight / 2;
 
@@ -109,7 +109,7 @@ $playerHeight: 52px;
   .played,
   .duration {
     color: $gray;
-    font-family: $helvetica;
+    font-family: $baseFontFamily;
     font-size: $smallFont;
     font-style: normal;
     font-weight: normal;

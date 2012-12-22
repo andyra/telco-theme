@@ -1,0 +1,16 @@
+
+// @codekit-prepend 'vendor/bootstrap.button.js'
+// @codekit-prepend 'vendor/bootstrap.collapse.js'
+// @codekit-prepend 'vendor/bootstrap.dropdown.js'
+// @codekit-prepend 'vendor/bootstrap.transition.js'
+// @codekit-prepend 'vendor/bootstrap.modal.js'
+// @codekit-prepend 'vendor/bootstrap.tabs.js'
+// @codekit-prepend 'vendor/jquery.metadata.js'
+// @codekit-prepend 'vendor/audio.js'
+// @codekit-prepend 'vendor/ytplayer.js'
+// @codekit-prepend 'vendor/fancybox.js'
+// @codekit-prepend 'vendor/fitvids.js'
+// @codekit-prepend 'vendor/tablesorter.js'
+// @codekit-prepend 'vendor/color-tunes.js'
+
+// @codekit-prepend 'application/application.js'

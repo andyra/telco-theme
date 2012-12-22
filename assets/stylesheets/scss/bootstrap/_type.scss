@@ -126,7 +126,7 @@ ol,
 
     &:before {
       @include box-sizing(border-box);
-      // color: $grayLight;
+      @include opacity(50);
       content: counter(li)'.'; // Use the counter as content
       counter-increment: li; // Increment the counter by 1
       display: inline-block;
