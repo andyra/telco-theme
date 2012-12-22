@@ -138,57 +138,47 @@
   });
 
   /* --------------------------------------------
-       Begin misc.coffee
+       Begin main.coffee
   --------------------------------------------
   */
 
 
   jQuery(document).ready(function($) {
-    if ($(".video-background").length) {
-      $(".video-background").mb_YTPlayer();
-    }
+    $(".video-background").mb_YTPlayer();
     if (!$("body").hasClass("blog")) {
       $(".menu-dispatch").removeClass("active");
     }
-    if ($("a.distribute").length) {
-      $("a.distribute").click(function(e) {
-        var collectionTitle;
-        e.preventDefault();
-        $(".request").fadeToggle("fast");
-        $("html, body").animate({
-          scrollTop: $(".request .letter").offset().top
-        }, "slow");
-        collectionTitle = $(".request .letter h1").text();
-        return $("#input_1_3").attr("value", collectionTitle);
-      });
-    }
-    if ($(".table-sortable").length) {
-      $(".table-sortable").tablesorter({
-        sortList: [[0, 0]],
-        cssAsc: "sorted ascending",
-        cssDesc: "sorted descending"
-      });
-    }
-    if ($(".toggle-tracklist")) {
-      $(".toggle-tracklist").click(function(e) {
-        var buttonText;
-        buttonText = ($(".tracklist").is(":visible") ? "⬇ Show playlist" : "⬆ Hide playlist");
-        $(".toggle-tracklist").text(buttonText);
-        return $(".tracklist").slideToggle("fast");
-      });
-    }
+    $(".table-sortable").tablesorter({
+      sortList: [[0, 0]],
+      cssAsc: "sorted ascending",
+      cssDesc: "sorted descending"
+    });
+    $(".toggle-tracklist").click(function(e) {
+      var buttonText;
+      buttonText = ($(".tracklist").is(":visible") ? "⬇ Show playlist" : "⬆ Hide playlist");
+      $(".toggle-tracklist").text(buttonText);
+      return $(".tracklist").slideToggle("fast");
+    });
     if ($("body").hasClass("single-movie")) {
       $("#content").fitVids();
     }
-    if ($(".fancybox").length) {
-      $(".fancybox").fancybox({
-        helpers: {
-          title: {
-            type: "inside"
-          }
+    $(".fancybox").fancybox({
+      helpers: {
+        title: {
+          type: "inside"
         }
-      });
-    }
+      }
+    });
+    $("a.distribute").click(function(e) {
+      var collectionTitle;
+      e.preventDefault();
+      $(".request").fadeToggle("fast");
+      $("html, body").animate({
+        scrollTop: $(".request .letter").offset().top
+      }, "slow");
+      collectionTitle = $(".request .letter h1").text();
+      return $("#input_1_3").attr("value", collectionTitle);
+    });
     if ($("body").hasClass("single-collection")) {
       $("#input_1_2_1_container label").insertBefore("#input_1_2_1_container input");
       $("#input_1_2_3_container label").insertBefore("#input_1_2_3_container input");
