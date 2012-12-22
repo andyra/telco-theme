@@ -4,6 +4,13 @@ jQuery(document).ready ($) ->
   $(".video-background").mb_YTPlayer()
 
 
+  # Toggle playlist
+  $(".toggle-tracklist").click (e) ->
+    buttonText = (if $(".tracklist").is(":visible") then "⬇ Show playlist" else "⬆ Hide playlist")
+    $(".toggle-tracklist").text buttonText
+    $(".tracklist").slideToggle "fast"
+
+
   # Strip the active tag when it shouldn't be there
   $(".menu-dispatch").removeClass "active" unless $("body").hasClass("blog")
 
@@ -13,13 +20,6 @@ jQuery(document).ready ($) ->
     sortList: [[0, 0]]
     cssAsc: "sorted ascending"
     cssDesc: "sorted descending"
-
-
-  # Toggle playlist
-  $(".toggle-tracklist").click (e) ->
-    buttonText = (if $(".tracklist").is(":visible") then "⬇ Show playlist" else "⬆ Hide playlist")
-    $(".toggle-tracklist").text buttonText
-    $(".tracklist").slideToggle "fast"
 
 
   # FitVid on single movie

@@ -145,6 +145,12 @@
 
   jQuery(document).ready(function($) {
     $(".video-background").mb_YTPlayer();
+    $(".toggle-tracklist").click(function(e) {
+      var buttonText;
+      buttonText = ($(".tracklist").is(":visible") ? "⬇ Show playlist" : "⬆ Hide playlist");
+      $(".toggle-tracklist").text(buttonText);
+      return $(".tracklist").slideToggle("fast");
+    });
     if (!$("body").hasClass("blog")) {
       $(".menu-dispatch").removeClass("active");
     }
@@ -152,12 +158,6 @@
       sortList: [[0, 0]],
       cssAsc: "sorted ascending",
       cssDesc: "sorted descending"
-    });
-    $(".toggle-tracklist").click(function(e) {
-      var buttonText;
-      buttonText = ($(".tracklist").is(":visible") ? "⬇ Show playlist" : "⬆ Hide playlist");
-      $(".toggle-tracklist").text(buttonText);
-      return $(".tracklist").slideToggle("fast");
     });
     if ($("body").hasClass("single-movie")) {
       $("#content").fitVids();

@@ -9,7 +9,6 @@
 // @codekit-prepend 'vendor/audio.js'
 // @codekit-prepend 'vendor/ytplayer.js'
 // @codekit-prepend 'vendor/fancybox.js'
-// @codekit-prepend 'vendor/fitvids.js'
 // @codekit-prepend 'vendor/tablesorter.js'
 // @codekit-prepend 'vendor/color-tunes.js'
 

@@ -3,6 +3,23 @@
  * Single Movie
  * =========================================================================== */
 
-.single-movie .movie {
-  @extend .thumbnail;
+.single-movie {
+  .movie {
+    @include span-columns(6);
+    @extend .thumbnail;
+  }
+
+  .wrapper {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+
+    iframe {
+      @include size(100%, 100%);
+      left:0;
+      position: absolute;
+      top: 0;
+    }
+  }
 }
