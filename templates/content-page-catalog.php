@@ -1,4 +1,4 @@
-<div class="tab-content">
+<section class="tab-content">
   <?php // Get list of terms to filter by
   $filter_terms = telco_get_terms('catalog', 'all');
 
@@ -8,7 +8,7 @@
     $filter_term = strtolower($filter_term);
     $catalog_objects = telco_get_posts_with_term('catalog', $filter_term); ?>
 
-    <section class="<?php echo telco_filter_tab_classes($filter_term); ?>" id="<?php echo $filter_term; ?>">
+    <div class="<?php echo telco_filter_tab_classes($filter_term); ?>" id="<?php echo $filter_term; ?>">
       <ul class="thumbnails">
 
       <?php foreach ($catalog_objects as $post) :
@@ -22,6 +22,6 @@
       <?php endforeach; ?>
 
       </ul>
-    </section>
+    </div>
   <?php endforeach; ?>
-</div>
+</section>

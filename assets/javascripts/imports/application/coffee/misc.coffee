@@ -4,16 +4,6 @@ jQuery(document).ready ($) ->
   if $(".video-background").length
     $(".video-background").mb_YTPlayer()
 
-  # Tabs
-  # if $(".filter")
-    # $(".filter a[href=\"#all\"]").addClass("active").tab "show"
-    # $("#all").addClass "fade in"
-
-    # Add fade classes to tabs (they're being stripped for some reason)
-    # $("a[data-toggle=\"tab\"]").on "shown", (e) ->
-    #   $(".tab-content .active").addClass "fade in"
-
-
   # "Dispatch" menu item is being weird.
   # Strip the active tag when it shouldn't be there
   $(".menu-dispatch").removeClass "active"  unless $("body").hasClass("blog")

@@ -526,7 +526,7 @@ function telco_get_posts_with_term($post_type, $filter_term) {
 
 function telco_filter_tab_classes($filter_term) {
   if ($filter_term == 'all') {
-    return 'tab-pane active in';
+    return 'tab-pane fade in active';
   } else {
     return 'tab-pane fade in';
   }
