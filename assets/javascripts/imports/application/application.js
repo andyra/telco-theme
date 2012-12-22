@@ -159,9 +159,6 @@
       cssAsc: "sorted ascending",
       cssDesc: "sorted descending"
     });
-    if ($("body").hasClass("single-movie")) {
-      $("#content").fitVids();
-    }
     $(".fancybox").fancybox({
       helpers: {
         title: {

@@ -22,10 +22,6 @@ jQuery(document).ready ($) ->
     cssDesc: "sorted descending"
 
 
-  # FitVid on single movie
-  $("#content").fitVids() if $("body").hasClass("single-movie")
-
-
   # FancyBox
   $(".fancybox").fancybox helpers:
     title:
