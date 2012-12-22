@@ -618,9 +618,14 @@
 
   // Get the image to match the colors to
   $(document).ready(function() {
-    var image = new Image;
-    image.src = $(".album-art img").attr('src');
-    ColorTunes.launch(image);
+    var image, imageSource
+
+    image = new Image;
+    imageSource = $(".album-art img").attr('src');
+    if (imageSource != undefined) {
+      image.src = source;
+      ColorTunes.launch(image);
+    }
   });
 
 }).call(this);

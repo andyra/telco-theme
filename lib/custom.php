@@ -395,9 +395,16 @@ function telco_filter_buttons($filter_terms) { ?>
 
   <nav class="btn-group filter" data-toggle="buttons-radio">
     <?php foreach ($filter_terms as $filter_term) :
+
       // Create a css class without spaces, all lowercase
       $filter_term_slug = str_replace(' ', '_', strtolower($filter_term) );
-      echo '<a class="btn" href="#' . $filter_term_slug . '" data-toggle="tab">' . $filter_term . '</a>';
+      $classes = 'btn';
+      // Add active class if "all" is present
+      if ($filter_term_slug == 'all') {
+        $classes .= ' active';
+      }
+
+      echo '<a class="' . $classes . '" href="#' . $filter_term_slug . '" data-toggle="tab">' . $filter_term . '</a>';
     endforeach; ?>
   </nav>
 
@@ -512,6 +519,17 @@ function telco_get_posts_with_term($post_type, $filter_term) {
   // Return filtered posts
   $filtered_posts = get_posts($args);
   return $filtered_posts;
+}
+
+/* Filter tab classes
+-------------------------------------------------- */
+
+function telco_filter_tab_classes($filter_term) {
+  if ($filter_term == 'all') {
+    return 'tab-pane active';
+  } else {
+    return 'tab-pane fade';
+  }
 }
 
 /* Song of the Day
@@ -683,7 +701,6 @@ function telco_get_background_video($post) {
     loop: true,
     showControls: false,
     quality: 'large',
-    bufferImg: '" . get_template_directory_uri() . "/assets/images/animations/glitter.gif',
   ";
   $params = preg_replace('/\s+/', '', $params);
 

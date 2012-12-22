@@ -5,13 +5,13 @@ jQuery(document).ready ($) ->
     $(".video-background").mb_YTPlayer()
 
   # Tabs
-  if $(".filter")
-    $(".filter a[href=\"#all\"]").addClass("active").tab "show"
-    $("#all").addClass "fade in"
+  # if $(".filter")
+  #   $(".filter a[href=\"#all\"]").addClass("active").tab "show"
+  #   $("#all").addClass "fade in"
 
-    # Add fade classes to tabs (they're being stripped for some reason)
-    $("a[data-toggle=\"tab\"]").on "shown", (e) ->
-      $(".tab-content .active").addClass "fade in"
+  #   # Add fade classes to tabs (they're being stripped for some reason)
+  #   $("a[data-toggle=\"tab\"]").on "shown", (e) ->
+  #     $(".tab-content .active").addClass "fade in"
 
 
   # "Dispatch" menu item is being weird.

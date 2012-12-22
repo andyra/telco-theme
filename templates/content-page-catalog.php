@@ -8,11 +8,10 @@
     $filter_term = strtolower($filter_term);
     $catalog_objects = telco_get_posts_with_term('catalog', $filter_term); ?>
 
-    <section class="tab-pane fade" id="<?php echo $filter_term; ?>">
+    <section class="<?php echo telco_filter_tab_classes($filter_term); ?>" id="<?php echo $filter_term; ?>">
       <ul class="thumbnails">
 
-      <?php $i = 1;
-      foreach( $catalog_objects as $post ) :
+      <?php foreach ($catalog_objects as $post) :
         $collection = telco_get_collection_info($post); ?>
         <li>
           <a class="thumbnail" href="<?php echo $collection['permalink']; ?>">

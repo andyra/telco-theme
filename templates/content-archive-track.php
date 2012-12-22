@@ -11,7 +11,7 @@
     // Get the track titles
     $clean_tracklists = telco_clean_tracklists(); ?>
 
-    <section class="tab-pane fade" id="<?php echo $filter_term; ?>">
+    <section class="<?php echo telco_filter_tab_classes($filter_term); ?>" id="<?php echo $filter_term; ?>">
       <table class="table table-striped table-counter table-sortable">
         <thead>
           <tr>

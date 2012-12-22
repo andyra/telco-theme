@@ -8,7 +8,7 @@
     $filter_term = strtolower($filter_term);
     $collections = telco_get_posts_with_term('collection', $filter_term); ?>
 
-    <section class="tab-pane fade" id="<?php echo $filter_term; ?>">
+    <section class="<?php echo telco_filter_tab_classes($filter_term); ?>" id="<?php echo $filter_term; ?>">
       <ul class="archive-list unstyled">
 
       <?php foreach ($collections as $collection_object) :
@@ -27,6 +27,5 @@
       </ul>
     </section>
 
-  <?php endforeach; // end tab panes ?>
+  <?php endforeach; ?>
 </div>
-

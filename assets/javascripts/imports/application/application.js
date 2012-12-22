@@ -147,13 +147,6 @@
     if ($(".video-background").length) {
       $(".video-background").mb_YTPlayer();
     }
-    if ($(".filter")) {
-      $(".filter a[href=\"#all\"]").addClass("active").tab("show");
-      $("#all").addClass("fade in");
-      $("a[data-toggle=\"tab\"]").on("shown", function(e) {
-        return $(".tab-content .active").addClass("fade in");
-      });
-    }
     if (!$("body").hasClass("blog")) {
       $(".menu-dispatch").removeClass("active");
     }
