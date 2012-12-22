@@ -6,13 +6,7 @@
 
     <section class="movie">
       <div class="wrapper">
-        <iframe
-          width="420"
-          height="315"
-          src="<?php echo $video['url']; ?>"
-          frameborder="0"
-          allowfullscreen>
-        </iframe>
+        <iframe width="420" height="315" src="<?php echo $video['url']; ?>" frameborder="0" allowfullscreen></iframe>
       </div>
       <?php if( $video['caption'] ) : ?>
         <h3><?php echo $video['caption']; ?></h3>

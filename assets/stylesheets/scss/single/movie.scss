@@ -4,9 +4,25 @@
  * =========================================================================== */
 
 .single-movie {
+
+  // The first movie should be full screen
   .movie {
-    @include span-columns(6);
     @extend .thumbnail;
+  }
+
+  // Make the first movie full screen
+  .movie:nth-child(2) {
+    @include span-columns(12);
+  }
+
+  // All other movies are smaller
+  .movie + .movie {
+    @include span-columns(4);
+  }
+
+  // Make sure the smaller movies wrap correctly
+  .movie:nth-child(3n + 2) {
+    @include omega;
   }
 
   .wrapper {
@@ -20,6 +36,13 @@
       left:0;
       position: absolute;
       top: 0;
+    }
+  }
+
+  @include media($smallerScreen) {
+    .movie,
+    .movie + .movie {
+      @include fill-parent;
     }
   }
 }
