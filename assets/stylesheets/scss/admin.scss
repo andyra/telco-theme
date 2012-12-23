@@ -8,10 +8,22 @@
 @import 'bootstrap/mixins.scss';
 
 // Admin Styles
-@import 'admin/type.scss';
 @import 'admin/custom-posts.scss';
 @import 'admin/select2.scss';
 
+// All Headers
+h2 .nav-tab,
+.wrap h2,
+.subtitle,
+.login form .input,
+.wrap .icon32 + h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: $baseLineHeight / 2;
+
+  a { font-weight: normal; }
+}
+
 .wrap {
-  margin-top: $baseLineHeight;
+  margin-top: 18px;
 }

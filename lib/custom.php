@@ -290,10 +290,10 @@ add_filter('wp_head','telco_page_theme');
 function telco_get_movie_info($post) {
 
   // Title and permalink
-  $title     = get_the_title($post);
+  $title = get_the_title($post);
   $permalink = get_permalink($post);
 
-  // Album Art
+  // Video Still
   if( get_field('album_art', $post->ID) ) {
     $video_still = wp_get_attachment_image_src( get_field('video_still'), 'thumbnail' );
     $video_still = $video_still[0];
@@ -316,21 +316,31 @@ function telco_get_movie_info($post) {
 /* Get YouTube Video Info
 -------------------------------------------------- */
 
-function telco_get_video_info($post) {
+function telco_get_video_url($post_id) {
 
-  // Set up the url for the embed code
-  $youtube_id = get_sub_field('youtube_id');
-  $url        = 'http://www.youtube.com/v/' . $youtube_id . '?rel=0&amp;hd=1&amp;showsearch=0&amp;version=3&amp;showinfo=0&amp;modestbranding=1';
+  // Put all video IDs into an array
+  $video_ids = array();
+  while (the_repeater_field('videos', $post_id)) :
+    $video_id = get_sub_field('video_id');
+    array_push($video_ids, $video_id);
+  endwhile;
 
-  // Caption
-  $caption = get_sub_field('caption');
+  // Set default parameters (http://goo.gl/Lssjw)
+  $parameters = '?telco_params&color=white&fs=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&theme=light';
 
-  $video = array(
-    'caption' => $caption,
-    'url'     => $url,
-  );
+  // If it's a playlist, create a playlist parameter
+  if (count($video_ids) > 1) :
+    $playlist_ids = array_slice($video_ids, 1);
+    $playlist = implode(',', $playlist_ids);
+    $parameters .= '&playlist=' . $playlist;
+  endif;
 
-  return $video;
+  // The first video to be played
+  $video_id = $video_ids[0];
+
+  $url = 'http://www.youtube.com/embed/' . $video_id . $parameters;
+
+  return $url;
 }
 
 /* Get Phone Book Character info
