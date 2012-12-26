@@ -3,62 +3,75 @@
  * Admin Custom Post Type Styles
  * =========================================================================== */
 
-// 16px icons
-#adminmenu li div.wp-menu-image {
-  background-image: url('../images/icons-admin.png') !important;
+/* 16px Icons
+-------------------------------------------------- */
+
+#menu-posts-track,
+#menu-posts-collection,
+#menu-posts-movie,
+#menu-posts-phone_book {
+  // Set main background sprite
+  .wp-menu-image { background: url(../images/icons-admin.png) no-repeat 0 -34px !important; }
+
+  // Hover
+  &.wp-menu-open .wp-menu-image,
+  &:hover .wp-menu-image { background-position-y: -3px !important; }
 }
 
-// 16px icons for CPTs
-#menu-posts-track .wp-menu-image      { background-position: -391px -33px !important; }
-#menu-posts-collection .wp-menu-image { background-position: -421px -33px !important; }
-#menu-posts-movie .wp-menu-image      { background-position: -450px -33px !important; }
-#menu-posts-phone-book .wp-menu-image    { background-position: -480px -33px !important; }
+#menu-posts-track .wp-menu-image      { background-position-x:   0px !important; }
+#menu-posts-collection .wp-menu-image { background-position-x: -30px !important; }
+#menu-posts-movie .wp-menu-image      { background-position-x: -60px !important; }
+#menu-posts-phone_book .wp-menu-image { background-position-x: -90px !important; }
 
-#menu-posts-track.wp-menu-open .wp-menu-image,
-#menu-posts-track:hover .wp-menu-image,
-#menu-posts-collection.wp-menu-open .wp-menu-image,
-#menu-posts-collection:hover .wp-menu-image,
-#menu-posts-movie.wp-menu-open .wp-menu-image,
-#menu-posts-movie:hover .wp-menu-image,
-#menu-posts-phone-book.wp-menu-open .wp-menu-image,
-#menu-posts-phone-book:hover .wp-menu-image {
-  background-position-y: -1px !important;
+/* 32px Icons
+-------------------------------------------------- */
+
+#icon-edit.icon32-posts-track,
+#icon-edit.icon32-posts-collection,
+#icon-edit.icon32-posts-movie,
+#icon-edit.icon32-posts-phone_book {
+  background: url(../images/icons-admin@2x.png) no-repeat 0 0 !important;
 }
+
+#icon-edit.icon32-posts-track      { background-position-x:    0px !important; }
+#icon-edit.icon32-posts-collection { background-position-x:  -59px !important; }
+#icon-edit.icon32-posts-movie      { background-position-x: -118px !important; }
+#icon-edit.icon32-posts-phone_book { background-position-x: -177px !important; }
 
 // Media Tags
-#toplevel_page_mediatags_settings_panel {
-  .wp-menu-image {
-    background-position: -119px -33px !important;
+// #toplevel_page_mediatags_settings_panel {
+//   .wp-menu-image {
+//     background-position: -119px -33px !important;
 
-    img { display: none !important; }
+//     img { display: none !important; }
 
-    &.wp-menu-open .wp-menu-image,
-    &:hover .wp-menu-image { background-position-y: 0 !important; }
-  }
-}
+//     &.wp-menu-open .wp-menu-image,
+//     &:hover .wp-menu-image { background-position-y: 0 !important; }
+//   }
+// }
 
 // Gravity Forms Hack
-#toplevel_page_gf_edit_forms {
-  .wp-menu-image { background-position: 1px -33px; }
+// #toplevel_page_gf_edit_forms {
+//   .wp-menu-image { background-position: 1px -33px; }
 
-  img { display: none !important; }
+//   img { display: none !important; }
 
-  &.wp-menu-open .wp-menu-image,
-  &:hover .wp-menu-image { background-position-y: 0; }
-}
+//   &.wp-menu-open .wp-menu-image,
+//   &:hover .wp-menu-image { background-position-y: 0; }
+// }
 
 // 32px icons
-#wpcontent .wrap .icon32 {
-   background-image: url('../images/icons-admin@2x.png') !important;
-}
+// #wpcontent .wrap .icon32 {
+//    background-image: url('../images/icons-admin@2x.png') !important;
+// }
 
-// 32px icons for CPTs
-.icon32-posts-track      { background-position-x: -720px !important; }
-.icon32-posts-collection { background-position-x: -778px !important; }
-.icon32-posts-movie      { background-position-x: -836px !important; }
-.icon32-posts-phone-book    { background-position-x: -894px !important; }
+// // 32px icons for CPTs
+// .icon32-posts-track      { background-position-x: -720px !important; }
+// .icon32-posts-collection { background-position-x: -778px !important; }
+// .icon32-posts-movie      { background-position-x: -836px !important; }
+// .icon32-posts-phone_book    { background-position-x: -894px !important; }
 
-// Fix ACF 32px icon position
-#acf-cols #icon-edit {
-  background-position: -11px -6px !important;
-}
+// // Fix ACF 32px icon position
+// #acf-cols #icon-edit {
+//   background-position: -11px -6px !important;
+// }
