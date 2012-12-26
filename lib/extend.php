@@ -6,7 +6,7 @@
 // Track
 function telco_track_init() {
   $labels = array(
-    'name' => _x('Track Index', 'post type general name'),
+    'name' => _x('Tracks', 'post type general name'),
     'singular_name' => _x('Track', 'post type singular name'),
     'add_new' => _x('Add New', 'track'),
     'all_items' => __('All Tracks'),
@@ -41,7 +41,7 @@ add_action('init', 'telco_track_init');
 // Collection
 function telco_collection_init() {
   $labels = array(
-    'name' => _x('Collection Registry', 'post type general name'),
+    'name' => _x('Collections', 'post type general name'),
     'singular_name' => _x('Collection', 'post type singular name'),
     'add_new' => _x('Add New', 'collection'),
     'all_items' => __('All Collections'),
@@ -76,7 +76,7 @@ add_action('init', 'telco_collection_init');
 // Movie
 function telco_movie_init() {
   $labels = array(
-    'name' => _x('Movie Store', 'post type general name'),
+    'name' => _x('Movies', 'post type general name'),
     'singular_name' => _x('Movie', 'post type singular name'),
     'add_new' => _x('Add New', 'movie'),
     'all_items' => __('All Movies'),

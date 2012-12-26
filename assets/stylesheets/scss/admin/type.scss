@@ -1,0 +1,90 @@
+
+/* ==============================================================================
+ * Admin Type Styles
+ * =========================================================================== */
+
+/* Base
+-------------------------------------------------- */
+
+body  { -webkit-font-smoothing: antialiased !important; }
+.wrap { margin-top: 18px; }
+
+/* Headers
+-------------------------------------------------- */
+
+h2 .nav-tab,
+.wrap h2,
+.subtitle,
+.login form .input,
+.wrap .icon32 + h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: $baseLineHeight / 2;
+  text-rendering: optimizelegibility; // Fix the character spacing for headings
+
+  a { font-weight: normal; }
+}
+
+/* Blues (#21759)
+-------------------------------------------------- */
+
+strong .post-com-count span,
+.submitbox .submitcancel:hover {
+  background-color: $blue;
+}
+
+.tablenav .next,
+.tablenav .prev,
+a, #adminmenu a,
+#the-comment-list p.comment-author strong a,
+#media-upload a.del-link,
+#media-items a.delete,
+#media-items a.delete-permanently,
+.plugins a.delete,
+.ui-tabs-nav a,
+.inline-editor .categories .catshow,
+.inline-editor .categories .cathide,
+.about-wrap h2 .nav-tab {
+  color: $blue;
+}
+
+.submitbox .submitcancel {
+  color: $blue;
+  border-bottom-color: $blue;
+}
+
+/* Reds (#D54E21)
+-------------------------------------------------- */
+
+.post-com-count:hover span,
+#plugin-information .action-button {
+  background-color: $red;
+}
+
+a:hover,
+a:active,
+#sidemenu a.current,
+.attention,
+.tablenav .tablenav-pages a:hover,
+.tablenav .tablenav-pages a:focus,
+.js .sidebar-name:hover,
+.js #removing-widget,
+#menu-management .nav-tabs-arrow a:hover,
+.about-wrap h2 .nav-tab:hover,
+.tablenav .next:hover,
+.tablenav .prev:hover,
+#adminmenu a:hover,
+#adminmenu li.menu-top>a:focus,
+#adminmenu .wp-submenu a:hover,
+#the-comment-list .comment a:hover,
+#rightnow a:hover,
+#media-upload a.del-link:hover,
+div.dashboard-widget-submit input:hover,
+.subsubsub a:hover,
+.subsubsub a.current:hover,
+.ui-tabs-nav a:hover,
+.plugins .inactive a:hover,
+#all-plugins-table .plugins .inactive a:hover,
+#search-plugins-table .plugins .inactive a:hover {
+  color: $red;
+}
