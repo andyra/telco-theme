@@ -88,3 +88,27 @@ div.dashboard-widget-submit input:hover,
 #search-plugins-table .plugins .inactive a:hover {
   color: $red;
 }
+
+/* Form Stuff
+-------------------------------------------------- */
+
+// Color the focus state
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+select:focus {
+  @include box-shadow(0 0 5px rgba($aqua,.35));
+  border-color: $aquaLighter;
+  background: $greenWash;
+}
+
+// Fix padding issues on ACF radio buttons
+ul.radio_list {
+  padding-left: 1px !important;
+}

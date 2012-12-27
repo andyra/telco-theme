@@ -26,17 +26,27 @@
 /* 32px Icons
 -------------------------------------------------- */
 
-#icon-edit.icon32-posts-track,
-#icon-edit.icon32-posts-collection,
-#icon-edit.icon32-posts-movie,
-#icon-edit.icon32-posts-phone_book {
-  background: url(../images/icons-admin@2x.png) no-repeat 0 0 !important;
+#icon-edit,
+#icon-post {
+  &.icon32-posts-track,
+  &.icon32-posts-collection,
+  &.icon32-posts-movie,
+  &.icon32-posts-phone_book {
+    background: url(../images/icons-admin@2x.png) no-repeat 0 0 !important;
+  }
 }
 
-#icon-edit.icon32-posts-track      { background-position-x:    0px !important; }
-#icon-edit.icon32-posts-collection { background-position-x:  -59px !important; }
-#icon-edit.icon32-posts-movie      { background-position-x: -118px !important; }
-#icon-edit.icon32-posts-phone_book { background-position-x: -177px !important; }
+#icon-edit.icon32-posts-track,
+#icon-post.icon32-posts-track      { background-position-x:    0px !important; }
+
+#icon-edit.icon32-posts-collection,
+#icon-post.icon32-posts-collection { background-position-x:  -59px !important; }
+
+#icon-edit.icon32-posts-movie,
+#icon-post.icon32-posts-movie      { background-position-x: -118px !important; }
+
+#icon-edit.icon32-posts-phone_book,
+#icon-post.icon32-posts-phone_book { background-position-x: -177px !important; }
 
 // Media Tags
 // #toplevel_page_mediatags_settings_panel {

@@ -41,12 +41,12 @@ function telco_admin_scripts() {
     wp_enqueue_style('telco_admin_style', get_stylesheet_directory_uri() .'/assets/stylesheets/admin.min.css', false, '1.0', 'all');
 
     // Register
-    // wp_register_script('telco_admin_jquery', get_template_directory_uri() . '/assets/javascripts/jquery-1.7.1.min.js', false, null, false); // jQuery 1.7.1 required for Select2 (12/5/12)
-    // wp_register_script('telco_admin_js', get_template_directory_uri() . '/assets/javascripts/admin.min.js', array('telco_admin_jquery'), false, true );
+    wp_register_script('telco_admin_jquery', get_template_directory_uri() . '/assets/javascripts/jquery-1.7.1.min.js', false, null, false); // jQuery 1.7.1 required for Select2 (12/5/12)
+    wp_register_script('telco_admin_js', get_template_directory_uri() . '/assets/javascripts/admin.min.js', array('telco_admin_jquery'), false, true );
 
     // Enqueue
-    // wp_enqueue_script('telco_admin_jquery');
-    // wp_enqueue_script('telco_admin_js');
+    wp_enqueue_script('telco_admin_jquery');
+    wp_enqueue_script('telco_admin_js');
   }
 }
 add_action('admin_enqueue_scripts', 'telco_admin_scripts');
