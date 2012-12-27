@@ -531,7 +531,7 @@
         };
 
         // Check the contrast between foreground and background
-        contrastBetween = function(foregroundColor, bgColor) {
+        contrastBetween = function(foregroundColor, backgroundColor) {
           var Li, L2, contrast;
 
           L1 = 0.2126 * Math.pow(foregroundColor[0]/255, 2.2) +
@@ -542,9 +542,15 @@
                0.0722 * Math.pow(backgroundColor[2]/255, 2.2);
 
           if (L1 > L2) {
-            return (L1 + 0.05) / (L2 + 0.05);
+            contrast = (L1 + 0.05) / (L2 + 0.05);
+          } else {
+            contrast = (L2 + 0.05) / (L1 + 0.05);
           }
-          return (L2 + 0.05) / (L1 + 0.05);
+
+          if (contrast < 5) {
+            return 'low';
+          }
+          return 'normal';
         }
 
         isDark = function(color) {
@@ -555,34 +561,17 @@
           return (yiq <= 128) ? 'dark' : 'light;';
         }
 
-        defaultColorAgainst = function(color) {
-          return (isDark(color) == 'light') ? [54,58,57] : [222, 224, 223];
-        }
-
-        getDefaultColors = function(colorVar) {
-          var defaultColor;
-
-          if (contrastBetween(colorVar, backgroundColor) < 5) {
-            defaultColor = defaultColorAgainst(backgroundColor);
+        getDefaultColors = function(color) {
+          if (contrastBetween(color, backgroundColor) == 'low') {
+            var defaultColor = (isDark(backgroundColor) == 'dark') ? [222, 224, 223] : [54,58,57];
             return defaultColor;
           }
-
-          // If there's no problem with contrast, return original value
-          return colorVar;
+          return color;
         }
-
-        console.log('Background is ' + isDark(backgroundColor));
-        console.log('Foreground (' + foregroundColor + ') constrast is ' + contrastBetween(foregroundColor, backgroundColor));
-        console.log('Accent (' + accentColor + ') constrast is ' + contrastBetween(accentColor, backgroundColor));
-        console.log('-Now changing values-');
 
         // Set default colors if there's not enough contrast
         foregroundColor = getDefaultColors(foregroundColor);
         accentColor = getDefaultColors(accentColor);
-
-        console.log('Now the foreground (' + foregroundColor + ') constrast is ' + contrastBetween(foregroundColor, backgroundColor));
-        console.log('Now the accent (' + accentColor + ') constrast is ' + contrastBetween(accentColor, backgroundColor));
-
 
         // Create style rules
         var style =
@@ -595,7 +584,7 @@
             '.audiojs .play-pause p { border-right-color: ' + rgbToCssString(accentColor, .5) + '}';
             '.audiojs .play-pause p:hover { border-right-color: ' + rgbToCssString(accentColor, 1) + '}';
 
-        // If the background is
+
         if (isDark(backgroundColor) == 'dark') {
           style += 'h1 { text-shadow: 0 -1px 0 rgba(0,0,0,.5); }';
         } else {
