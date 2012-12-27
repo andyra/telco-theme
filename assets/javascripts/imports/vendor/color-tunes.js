@@ -623,7 +623,7 @@
     image = new Image;
     imageSource = $(".album-art img").attr('src');
     if (imageSource != undefined) {
-      image.src = source;
+      image.src = imageSource;
       ColorTunes.launch(image);
     }
   });
